@@ -1,0 +1,30 @@
+@charset "utf-8";
+
+body,td,th {
+	font-size: 12px;
+}
+body,html {
+	margin: 0px;
+	padding:0px;
+	background:#cce0f0;
+	height: 100%;
+}
+
+#body_outer {height: 100%; overflow: hidden; position: relative;width: 100%; padding-top:160px;}
+#body_outer[id] {display: table; position: static;}
+
+#login_middle {position: absolute;left:-70%; top: 50%;} /* for explorer only*/
+#login_middle[id] {display: table-cell; vertical-align: middle; position: static;margin:0 auto!important;}
+
+#container {left:expression(((document.compatMode != 'BackCompat'? document.documentElement.offsetWidth:document.body.offsetWidth)-this.clientWidth)/2+'px');
+	position: relative; top: -50%;width: 370px;margin:0 auto!important;height:400px;} /* for explorer only */
+
+#login_center{ width:370px;  height:250px; float:left; margin:0px; clear:both;}
+.login_user_title{ width:370px; height:28px; background: url(../Images/login_user/login_user_title.jpg) center no-repeat;}
+.login_user_title span{ color:#ffffff; padding-top:2px; padding-left:30px;}
+.login_user_banner{width:370px; height:80px; background: url(../Images/login_user/login_user_banner.jpg) center no-repeat;}
+.login_user_bg{width:370px; height:137px; background: url(../Images/login_user/login_user_bg.jpg) center no-repeat;}
+
+#login_foot{ width:370px; height:35px; float:left; margin:0px; font-size:12px; color:#666666; line-height:35px; text-align:center; clear:both;}
+
+#input_body{ width:300px; height:170px; margin-top:135px; float:left; margin-left:46px; padding:0px; clear:both;}

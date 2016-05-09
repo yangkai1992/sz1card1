@@ -1,0 +1,51 @@
+﻿.w100 {
+    width: 100%;
+}
+
+.h100 {
+    height: 100%;
+}
+
+.m10 {
+    margin: 10px;
+}
+
+.m10_r {
+    margin-right: 10px;
+}
+
+.m10_l {
+    margin-left: 10px;
+}
+
+.m10_t {
+    margin-top: 10px;
+}
+
+.m10_b {
+    margin-bottom: 10px;
+}
+
+.p10 {
+    padding: 10px;
+}
+
+.pr10 {
+    padding-right: 10px;
+}
+
+.pb0 {
+    padding-bottom: 0px;
+}
+
+.ta_r {
+    text-align: right;
+}
+
+.fs15 {
+    font-size: 15px;
+}
+
+.hand {
+    cursor: pointer;
+}

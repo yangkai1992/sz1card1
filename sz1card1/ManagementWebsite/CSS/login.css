@@ -1,0 +1,21 @@
+/* CSS Document */
+
+body,td,th {
+	font-size: 12px;
+}
+body {
+	margin: 0px;
+	background-color: #3768aa;
+}
+
+#container {
+	position : relative;
+	top : expression(((document.compatMode != 'BackCompat'? document.documentElement.offsetHeight:document.body.offsetHeight)-this.clientHeight)/3+'px');
+	width: 981px;
+	height:532px;
+	margin: 0px auto;
+	text-align:left;
+}
+#login_top{ width:981px; height:126px; float:left; margin:0px; background: url(../images/login_top.jpg) no-repeat;}
+#login_center{ width:981px; height:256px; float:left; margin:0px; background:url(../images/login_center.jpg) no-repeat;}
+#login_foot{ width:981px; height:148px; float:left; margin:0px; background:url(../images/login_foot.jpg) no-repeat;}

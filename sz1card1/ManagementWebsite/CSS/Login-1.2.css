@@ -1,0 +1,501 @@
+﻿/********************************     Basic Structure     ********************************/
+body
+{
+    color: #3d4042;
+    font-size: 14px;
+    width: 100%;
+    height: 100%;
+    font-family: "微软雅黑";
+}
+*
+{
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+a
+{
+    color: #3d4042;
+    text-decoration: none;
+    cursor: pointer;
+}
+a:hover
+{
+    color: rgb(62,130,222);
+}
+
+.dn
+{
+    display: none;
+}
+.dib
+{
+    display: inline-block;
+}
+.header
+{
+    height: 60px;
+    padding: 10px 20px;
+}
+.header h1
+{
+}
+.header p
+{
+    display: block;
+    height: 60px;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+}
+.phone
+{
+    display: inline-block;
+    font-size: 26px;
+    width: 200px;
+    height: 58px;
+    line-height: 58px;
+    padding-left: 40px;
+    color: #fd8504;
+    vertical-align: middle;
+    background: url(../images/phone.png) 0px 10px no-repeat;
+}
+.freeuse
+{
+    width: 148px;
+    height: 58px;
+    display: inline-block;
+    vertical-align: middle;
+    background: url(../images/shiyong.png) 0 0 no-repeat;
+}
+#loginbg
+{
+    width: 100%;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: top center;
+}
+.section
+{
+    /*background: url(../images/bg.jpg); background: url(http://www.sz1card1.com/Management/SalesSupport/DownloadFile.ashx?fileId=DF5503BE45AF42974C12FEBD2A1D380800AABB109C1E5B3EFFA2AC6C2CAA48870AE7528A6D2C8587);*/
+}
+.login
+{
+    width: 26%;
+    border: #e8e8e8 1px solid;
+    position: absolute;
+    top: 20%;
+    right: 4%;
+    background: #fff;
+    z-index: 100;
+}
+.login .tab
+{
+    width: 100%;
+    height: 36px;
+    background: #dcdee6;
+}
+.login .tab li
+{
+    width: 90px;
+    height: 36px;
+    line-height: 36px;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    float: left;
+}
+.login .tab li.current
+{
+    background: #fff;
+}
+.login form
+{
+    padding: 5%;
+}
+.login p
+{
+    padding: 2%;
+    width: 100%;
+    display: block;
+}
+.p2
+{
+    display: table;
+    width: 290px;
+}
+.txt
+{
+    width: 80%;
+    height: 24px;
+    line-height: 24px;
+    padding: 5px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+.btn
+{
+    display: block;
+    text-align: center;
+    width: 95%;
+    height: 40px;
+    border-radius: 5px;
+    background-color: rgb(253,133,4);
+    border: 0px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 微软雅黑;
+    cursor: pointer;
+}
+.check
+{
+    margin-left: 9%;
+    width: 40%;
+    height: 36px;
+    cursor: pointer;
+    vertical-align: top;
+}
+.remberPassword
+{
+    float: left;
+    vertical-align: middle;
+    cursor: pointer;
+}
+#ckbRemeberPassword
+{
+    vertical-align: middle;
+    cursor: pointer;
+}
+.footer
+{
+    width: 100%;
+    height: 25px;
+    display: table;
+    padding: 20px 0;
+}
+.footer .webname, .footer .website
+{
+    display: table-cell;
+    width: 23%;
+    height: 25px;
+    line-height: 25px;
+}
+.footer .top
+{
+    display: table-cell;
+    padding-left: 60px;
+    background: url(../images/laba.png) 20px 0 no-repeat;
+}
+.login .loginform
+{
+    padding: 15px 25px 0px 25px;
+}
+#txtCheck
+{
+    width: 40%;
+}
+.login .operation
+{
+    padding: 0px 25px 10px 25px;
+}
+.loading
+{
+    background: none repeat scroll 0 0 rgba(0, 0, 0, 0.4);
+    line-height: 360px;
+    text-align: center;
+    z-index: 1001;
+    display: none;
+}
+#loading-msg
+{
+    font-weight: 600;
+    font-size: 14px;
+    color: #fff;
+}
+
+#imgLogo
+{
+    width: 180px;
+    height: 60px;
+}
+
+.upgrade
+{
+    overflow: hidden;
+    display: none;
+    position: absolute;
+    top: 85%;
+    left: 40px;
+    width: 1px;
+    height: 1px;
+    padding: 5px;
+    border: 1px solid #909090;
+    background-color: White;
+    z-index: 3000;
+    filter: progid:DXImageTransform.Microsoft.Shadow(color=#909090,direction=120,strength=4); /*ie*/
+    -moz-box-shadow: 2px 2px 10px #909090; /*firefox*/
+    -webkit-box-shadow: 2px 2px 10px #909090; /*safari或chrome*/
+    box-shadow: 2px 2px 10px #909090; /*opera或ie9*/
+}
+.close
+{
+    width: 100%;
+    height: 20px;
+}
+.close > a, .close > img
+{
+    vertical-align: middle;
+    float: right;
+    cursor: pointer;
+}
+.notetile
+{
+    font-size: large;
+    font-weight: bolder;
+    width: 90%;
+}
+.notedetail
+{
+    width: 90%;
+}
+.notepublishtime
+{
+    float: right;
+    margin-right: 10px;
+}
+.upinfo
+{
+    cursor: pointer;
+}
+
+.contect
+{
+    padding: 0 20px;
+    vertical-align: middle;
+}
+.contect li
+{
+    border-bottom: 1px solid #e8e8e8;
+    padding: 10px 0;
+}
+
+.contect li > h3
+{
+    padding: 5px 0;
+}
+.contect li a
+{
+    color: Blue;
+    text-decoration: underline;
+}
+.contect li > p
+{
+    height: 22px;
+    line-height: 22px;
+}
+.contect li div
+{
+    text-indent: 2em;
+    line-height: 22px;
+}
+.lineheight
+{
+    margin-bottom: 5px;
+}
+.title
+{
+    margin-bottom: 8px;
+    background-color: rgb(220,222,230);
+}
+#softkey
+{
+    position: absolute;
+    z-index: 10000;
+    overflow: auto;
+}
+.key
+{
+    background-image: url("../images/keyon.png");
+    position: absolute;
+    width: 32px;
+    height: 36px;
+    cursor: pointer;
+    right: 13%;
+}
+.key1
+{
+    background-image: url("../images/keydown.png");
+}
+.reSetPassword
+{
+    margin-left: 10%;
+    color: blue;
+    cursor: pointer;
+    text-align: right;
+    vertical-align: middle;
+    text-decoration: underline;
+}
+.reSetPassword:hover
+{
+    text-decoration: underline;
+}
+
+.SetPwd
+{
+    overflow: hidden;
+    display: none;
+    position: absolute;
+    top: 20%;
+    width: 1px;
+    height: 1px;
+    padding: 5px;
+    border: 1px solid #909090;
+    background-color: White;
+    z-index: 2000;
+    filter: progid:DXImageTransform.Microsoft.Shadow(color=#909090,direction=120,strength=4); /*ie*/
+    -moz-box-shadow: 2px 2px 10px #909090; /*firefox*/
+    -webkit-box-shadow: 2px 2px 10px #909090; /*safari或chrome*/
+    box-shadow: 2px 2px 10px #909090; /*opera或ie9*/
+}
+
+.resetpwd
+{
+    margin: 5px 10px;
+}
+.resetpwd p
+{
+    padding: 5px;
+    width: 280px;
+    display: block;
+}
+.resetpwd p .txt
+{
+    width: 210px;
+}
+#checkphone
+{
+    width: 90px;
+}
+.getcheckcode
+{
+    width: 110px;
+    height: 36px;
+    margin-left: 14px;
+    border-radius: 4px;
+    background-color: rgb(100, 171, 226);
+    color: White;
+    font-weight: bold;
+    font-size: 14px;
+    border: 0px;
+}
+.getcheckcode:hover
+{
+    background-color: rgb(71, 151, 213);
+}
+.getcheckcode:disabled
+{
+    color: #cccccc;
+    background: #acacac;
+}
+.next
+{
+    text-align: center;
+}
+.btnnext
+{
+    width: 140px;
+    height: 40px;
+    margin-top: 3px;
+    border-radius: 5px;
+    background-color: rgb(253,133,4);
+    border: 0px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: 微软雅黑;
+}
+.btnnext:hover, .btn:hover
+{
+    background-color: rgb(189,102,9);
+}
+.btnnext:disabled
+{
+    color: #cccccc;
+    background: #acacac;
+}
+.prompt
+{
+    width: 20px;
+    height: 20px;
+    vertical-align: sub;
+}
+#error1, #error2, #error3
+{
+    color: Red;
+    padding-left: 5px;
+}
+#ImgCode
+{
+    width: 20px;
+    height: 20px;
+    visibility: hidden;
+    vertical-align: middle;
+}
+
+.password
+{
+    background-color: #ccc;
+    width: 30px;
+    display: inline-block;
+    color: White;
+    text-align: center;
+}
+#rtMsg
+{
+    display: block;
+    width: 95%;
+    height: 36px;
+    line-height: 18px;
+}
+#btnmore
+{
+    margin-right: 25px;
+}
+.ui-mask
+{
+    position: absolute;
+    background: rgba(0, 0, 0, 0.4);
+    text-align: center;
+}
+.ui-mask > span
+{
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff;
+    margin-left: 5px;
+}
+.icon
+{
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    margin: 6px 0px 0px 5px;
+    background: url(../images/icon4_login.png);
+}
+.pl35
+{
+    padding-left: 35px;
+}
+.iconaccont
+{
+    background-position: -24px 0px;
+}
+.iconpwd
+{
+    background-position: -48px 0px;
+}
+.iconphone
+{
+    background-position: -72px 0px;
+}

@@ -1,0 +1,96 @@
+﻿HTML {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    font-size: 13px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+a {
+    text-decoration: none;
+    color: Black;
+}
+
+.a {
+    text-decoration: none;
+    color: White;
+}
+
+.line_td {
+    border-bottom-width: 1px;
+    border-bottom-color: #ccc;
+    border-bottom-style: dashed;
+}
+
+.Back_tr {
+    background-image: url(../Images/Menu/backColor.gif);
+    font-weight: bold;
+    color: Gray;
+}
+
+.overa {
+    text-decoration: none;
+    color: Blue;
+}
+
+.outa {
+    text-decoration: none;
+    color: Gray;
+}
+
+.seta {
+    text-decoration: none;
+    color: Gray;
+}
+
+.line {
+    border-bottom: 1px;
+    border-bottom-color: #cccccc;
+    border-bottom-style: solid;
+}
+
+.defaultheidth {
+    height: auto !important;
+    height: 200px;
+    min-height: 200px;
+}
+
+textarea {
+    border: solid 1px lightblue;
+    background-color: White;
+}
+
+.td_body {
+    border: 1px;
+    border-style: solid;
+    border-color: #7bc4d3;
+}
+
+.td_none {
+}
+
+.selfgridtable {
+    background: #ccc;
+    margin: 10px 0;
+    border-spacing: 1px;
+    border-collapse: inherit;
+    border-color: rgb(211,234,219);
+}
+
+    .selfgridtable td {
+        background: #fff;
+        padding: 3px;
+        text-align: center;
+    }
+
+    .selfgridtable th {
+        background: rgb(211,234,219);
+        padding: 3px;
+    }

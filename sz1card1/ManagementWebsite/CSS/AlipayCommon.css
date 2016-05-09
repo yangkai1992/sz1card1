@@ -1,0 +1,443 @@
+﻿@charset "utf-8";
+/* CSS by feng*/
+*{
+	margin: 0;
+	padding: 0;
+	border-width: 0px;
+	outline: none;
+    box-sizing:initial;
+    font:normal  "微软雅黑","Droid Sans Fallback","WenQuanYi Micro Hei";
+}
+
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{
+	display: block;
+}
+
+input,select,textarea {
+			font-size: 100%
+}
+
+img,a img {
+	border: 0;
+	vertical-align: middle;
+	width: 100%;
+}
+
+ol,ul {
+	list-style: none
+}
+
+a {
+	outline: 0 none;
+	text-decoration: none;
+    color: #606366;
+    cursor:pointer;
+}
+em {
+	font-style: normal;
+	font-weight: normal;
+}
+/*********布局********/
+.clear{
+    clear:both;
+}
+.fl{
+	float: left;
+}
+.fr{
+	float: right;
+}
+.fs {
+    float:left;
+}
+.oh{
+	overflow: hidden;
+}
+.os{
+	overflow: scroll;
+}
+.os_x{
+	overflow-x:scroll; 
+}
+.os_y{
+	overflow-y: scroll;
+}
+.db{
+	display: block;
+}
+.dn{
+	display: none;
+}
+.di{
+	display: inline;
+}
+.dib{
+	display: inline-block;
+}
+/************定位*********/
+.pr{
+	position: relative;
+}
+.pa{
+	position: absolute;
+}
+.pf{
+	position: fixed;
+}
+/********边框*******/
+.br05{
+	-webkit-border-radius: 5px;
+	-o-border-radius: 5px;
+	-ms-border-radius: 5px;
+	border-radius: 5px;
+}
+.br1{
+	-webkit-border-radius: 10px;
+	-o-border-radius: 10px;
+	-ms-border-radius: 10px;
+	border-radius: 10px;
+}
+
+.b_s{
+	box-shadow: 0 0 10px #fff;
+}
+.b0{
+	border: 0px;
+}
+
+/*****************盒模型********/
+.db_f{
+  display: -webkit-box;
+  display: -moz-box;
+  display: -o-box;
+  display: -ms-box;
+  display: box;
+}
+.bf1{
+	-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	-o-box-flex: 1;
+	-ms-box-flex: 1;
+	box-flex: 1;
+}
+.b_sb{
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.grid{
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -o-flex;
+  display: -ms-flex;
+  display: flex;
+}
+.grid-Vertical{
+	-webkit-box-orient: vertical;
+	-moz-box-orient: vertical;
+	box-orient: vertical;
+}
+.grid-cell{
+	/*-webkit-box-flex: 1;
+	-moz-box-flex: 1;
+	-o-box-flex: 1;
+	-ms-box-flex: 1;
+	box-flex: 1;*/
+	-webkit-flex: 1;
+	-moz-flex: 1;
+	-o-flex: 1;
+	-ms-flex: 1;
+	flex: 1;
+}
+.grid-top {
+	-webkit-box-align: start;
+	-webkit-align-items: flex-start;
+	-moz-box-align: start;
+	-ms-flex-align: start;
+	align-items: flex-start;
+}
+.grid-center {
+	-webkit-box-align: center;
+	-webkit-align-items: center;
+	-moz-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+.grid-bottom {
+	-webkit-box-align: end;
+	-webkit-align-items: flex-end;
+	-moz-box-align: end;
+	-ms-flex-align: end;
+	align-items: flex-end;
+}
+.grid-cell-top {
+	-webkit-align-self: flex-start;
+	-ms-flex-item-align: start;
+	align-self: flex-start;
+}
+.grid-cell-center {
+	-webkit-align-self: center;
+	-ms-flex-item-align: center;
+	align-self: center;
+}
+.grid-cell-bottom {
+	-webkit-align-self: flex-end;
+	-ms-flex-item-align: end;
+	align-self: flex-end;
+}
+/*********边距*********/
+.m0{
+	margin: 0px;
+}
+.m05{
+	margin: 5px;
+}
+.mtm05{
+	margin: 5px 0;
+}
+.mlr05{
+	margin: 0 5px;
+}
+.m1{
+	margin: 10px;
+}
+.mtm1{
+	margin:10px 0; 
+}
+.mr1{
+	margin-right: 10px;
+}
+.ml1{
+	padding-left: 10px;
+}
+.mlr1{
+	margin: 0 10px;
+}
+.p0{
+	padding: 0px;
+}
+.p05{
+	padding: 5px;
+}
+.ptm05{
+	padding: 5px 0;
+}
+.plr05{
+	padding: 0 5px;
+}
+.p1{
+	padding: 10px;
+}
+.plr1{
+	padding: 0px 10px;
+}
+/*******尺寸******/
+.w1{
+	width: 10%;
+}
+.w15{
+	width: 15%;
+}
+.w2{
+	width: 20%;
+}
+.w3{
+	width: 30%;
+}
+.w4{
+	width: 40%;
+}
+.w45{
+	width: 45%;
+}
+.w5{
+	width: 50%;
+}
+.w6{
+	width: 60%
+}
+.w7{
+	width: 70%;
+}
+.w8{
+	width: 80%;
+}
+.w9{
+	width: 90%;
+}
+.w10{
+	width: 100%;
+}
+.h1{
+	height: 10px;
+}
+.l1{
+	line-height: 10px;
+}
+.h2{
+	height: 20px;
+}
+.l2{
+	line-height: 20px;
+}
+.h3{
+	height: 30px;
+}
+.l3{
+	line-height: 30px;
+}
+.h4{
+	height: 40px;
+	line-height: 40px;
+}
+.l4{
+	line-height: 40px;
+}
+.h5{
+	height: 50px;
+}
+.l5{
+	line-height: 50px;
+}
+.h10{
+	height: 100%;
+}
+/********文本****/
+.fs12{
+	font-size: 12px;
+}
+.fs14{
+	font-size: 14px;
+}
+.fs16{
+	font-size: 16px;
+}
+
+
+.f_wb{
+	font-weight: bold;
+}
+.f_w40{
+	font-weight: 400;
+}
+
+
+.t_ac{
+	text-align: center;
+}
+.t_al{
+	text-align: left;
+}
+.t_ar{
+	text-align: right;
+}
+
+
+.t_du{
+	text-decoration: underline;
+}
+.v_at{
+	vertical-align: top;
+}
+.v_am{
+	vertical-align: middle;
+}
+.v_ab{
+	vertical-align: bottom;
+}
+.v_atb{
+	vertical-align: text-bottom;
+}
+.cc{
+	color: #ccc;
+}
+.cf{
+	color: #fff;
+}
+
+.ct{
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+}
+/***************下拉框**************/
+.ddl{
+	height: 30px;
+	line-height: 30px;
+	padding: 0px;
+	-webkit-appearance: button; 
+	-webkit-user-select: none; 
+}
+/**************弹出框*************/
+.dialog_bg{
+	background: url(../images/bg.png);
+	position:fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 2000;
+	top: 0px;
+    left:0px;
+}
+.dialog{
+	width: 480px;
+	height: 320px;
+	left:50%;
+	top:50%;
+	margin:-160px 0 0 -240px;
+	background:#fff;
+	position: absolute;
+    border:1px solid #999;
+    border-radius:5px;
+    overflow:hidden;
+}
+.d_title{
+	font-size: 20px;
+	padding: 15px 20px;
+	border-bottom: 1px solid #DDD;
+	margin: 0px;
+}
+.dialog_bottom {
+    border-top: 1px solid #DDD;
+    bottom:0px;
+}
+.d_btn{
+	background:#fff;
+	border: 0px;
+	border-top: 1px #ccc solid;
+	border-right:1px #ccc solid;
+}
+.d_btn:active{
+	background: #50D4FD;
+}
+.close_btn{
+    right: 0px;
+    top: 0px;
+    width: 40px;
+    height: 40px;
+}
+
+.alert1 {
+    height: auto;
+    font-size: 15px;
+    width: 50%;
+    left: 50%;
+    margin: 120px 0 0 -25%;
+    padding-top: 45px;
+}
+
+.success {
+    background: rgba(0, 0, 0, 0.3) url(/Images/success.png) 50% 0px no-repeat;
+    background-size: 45px;
+}
+
+.warn {
+    background: rgba(0, 0, 0, 0.3) url(/Images/warn.png) 50% 0px no-repeat;
+    background-size: 45px;
+}
+
+.loading {
+    background: rgba(0, 0, 0, 0.3) url(/Images/loadingM.gif) 50% 10px no-repeat;
+    background-size: 30px;
+}

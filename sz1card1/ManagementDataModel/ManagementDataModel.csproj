@@ -1,0 +1,481 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7A8B38FB-59A2-4362-BC2D-D872DAC65DA9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ManagementDataModel</RootNamespace>
+    <AssemblyName>ManagementDataModel</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Models\Agent.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AgentBankAccount.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AgentBusiness.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AgentBusinessMoneyNote.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AgentGroup.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AgentLog.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AgentMoneyNote.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AgentPackage.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AgentParameter.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AgentUser.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AgentUserBusiness.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AgentUserGroup.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AlipayParameter.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AndroidPosInfo.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Answer.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Application.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AppMapping.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AppPlatform.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AppTerminal.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BankAccount.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BugInfo.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Bulletin.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Business.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BusinessBlockKeeper.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BusinessInterface.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BusinessMoneyNote.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BusinessParameter.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CardNote.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Channel.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ChannelPackage.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ChannelQueue.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ChannelRule.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CheckPayment.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\C_TempBusiness.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Edition.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EditionPackage.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FileManagement.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Hardware.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Help.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Invoice.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\InvoiceItem.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\InvoiceOperation.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\InvoiceRecord.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IPDatabase.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LockedParameter.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Log.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Member.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MemberLog.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MicroBlogSetting.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MmsSend.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MobileArea.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MobileCheckCode.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MobileDevice.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MobileMemberCard.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MobileMessage.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MobileMessageFilter.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MobileMessageSend.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MobileUpdateNote.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MobileUpdateSet.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OemParameter.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\OnlineUser.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Order.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Package.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Parameter.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ParameterMetadata.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PlatformBug.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PosConfiguration.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PriceMode.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PurchaseNote.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QRTZ_BLOB_TRIGGERS.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QRTZ_CALENDARS.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QRTZ_CRON_TRIGGERS.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QRTZ_FIRED_TRIGGERS.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QRTZ_JOB_DETAILS.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QRTZ_LOCKS.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QRTZ_PAUSED_TRIGGER_GRPS.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QRTZ_SCHEDULER_STATE.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QRTZ_SIMPLE_TRIGGERS.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QRTZ_SIMPROP_TRIGGERS.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QRTZ_TRIGGERS.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Question.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RecommendNote.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ShortUrlMapping.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SmsBlackList.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SmsDeadNumber.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SmsReceive.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SmsRegRecord.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SmsReplyReport.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SmsSend.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SmsSendHistory.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SmsSendSwitch.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SmsSendTask.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SoftType.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Status.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Survey.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SurveyRecord.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TempBusiness.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TempBusinessKey.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Temp_OnlineUser.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UpgradeNote.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>User.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>User.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserAgent.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserBusiness.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserGroup.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WebAddValueNote.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WeiXinConfig.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WeiXinMapping.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WeixinMapping1.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WeixinMessage.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WeixinParameter.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WeixinReplyNode.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WeiXinReplyRule.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\WeixinUserMap.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Z_AgentTempDoc.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Z_AgentTempDocNew.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Z_AnswerTempDoc.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Z_BusinessTempDoc.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Z_FileManagementTempDoc.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Z_HelpTempDoc.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Z_ManagementBulletinTempDoc.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Z_ManagementMemberTempDoc.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Z_QuestionTempDoc.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Z_UpgradeNoteTempDoc.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Z_WeixinMessageNew.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Z_WeixinMessageTempDoc.cs">
+      <DependentUpon>User.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User\User.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Models\User.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>User.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="Models\User.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>User.edmx</DependentUpon>
+      <LastGenOutput>User.Context.cs</LastGenOutput>
+    </None>
+    <None Include="Models\User.edmx.diagram">
+      <DependentUpon>User.edmx</DependentUpon>
+    </None>
+    <None Include="Models\User.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>User.edmx</DependentUpon>
+      <LastGenOutput>User1.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

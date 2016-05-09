@@ -1,0 +1,100 @@
+﻿HTML
+{
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+body
+{
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    font-size: 13px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.td
+{
+    background-color: #d3eaef;
+    height: 28px;
+}
+.div
+{
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    border: 1px;
+    border-bottom-style: solid;
+    border-color: #d3eaef;
+}
+.tbQuestion tbody tr td
+{
+    height: 23px;
+}
+.line_td
+{
+    border-bottom: 1px;
+    border-bottom-color: #d3eaef;
+    border-bottom-style: solid;
+}
+.line
+{
+    border-bottom: 1px;
+    border-bottom-color: #cccccc;
+    border-bottom-style: solid;
+}
+.line_tdtop
+{
+    border-top: 1px;
+    border-top-color: #d3eaef;
+    border-top-style: solid;
+}
+.th
+{
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-right-color: #cccccc;
+    text-align: center;
+}
+.table_back
+{
+    background-image: url('../../Images/Menu/context.gif');
+    border: 1px;
+    border-color: #cccccc;
+    border-style: solid;
+    border-bottom-width: 0px;
+}
+.table_tr_td
+{
+    border-bottom: 1px;
+    border-bottom-color: #cccccc;
+    border-bottom-style: solid;
+}
+.tr
+{
+    border-bottom-width: 0px;
+}
+.linedo
+{
+    border: 1px dashed;
+    border-color: #cccccc;
+    background-image: url('../Images/Menu/backColor.gif');
+}
+.line_d
+{
+    border-bottom: 1px;
+    border-bottom-color: #cccccc;
+    border-bottom-style: solid;
+}
+.dashed_td
+{
+    border-bottom: 1px;
+    border-bottom-color: #cccccc;
+    border-bottom-style: dashed;
+}
+textarea
+{
+    border: solid 1px lightblue;
+    background-color: White;
+}

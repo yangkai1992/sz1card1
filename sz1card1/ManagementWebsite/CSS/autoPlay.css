@@ -1,0 +1,40 @@
+﻿#banner {
+    position: relative;
+    width: 100%;
+    border: 0px;
+    overflow: hidden;
+}
+
+#banner_list img {
+    border: 0px;
+    cursor: default;
+    width: 100%;
+    height: auto;
+}
+
+#banner_list {
+    width: 100%;
+    height: auto;
+}
+
+#banner ul {
+    position: absolute;
+    list-style-type: none;
+    filter: Alpha(Opacity=80);
+    opacity: 0.8;
+    z-index: 1002;
+    margin: 0px;
+    right: 600px;
+    top: 485px;
+}
+
+#banner li {
+    float: left;
+    list-style-position: outside;
+    list-style-type: disc;
+    color: gray;
+    cursor: pointer;
+    margin-left: 30px;
+    font-size: 55px;
+    width: 0px;
+}

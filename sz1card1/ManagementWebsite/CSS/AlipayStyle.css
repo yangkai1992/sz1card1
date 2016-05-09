@@ -1,0 +1,207 @@
+@charset "utf-8";
+/* CSS by Xk*/
+body{
+	background: #eee;
+	color:#1a1a1a;
+}
+
+#wallpaper{
+	width: 1024px;
+	height: auto;
+	background: #FFF;
+
+	margin:0 auto;
+}
+.header{
+	padding: 60px 0;
+}
+.guide{
+	width: 635px;
+	margin: 0 auto;
+}
+.guide .tip{
+	width: 284px;
+	height: auto;
+	float: left;
+	position: relative;
+}
+.guide .tip_end{
+	width: 26px;
+	position: relative;
+}
+
+.guide .tip .tip_number{
+	display: inline-block;
+	height: 26px;
+	width: 26px;
+	border-radius: 50%;
+	background: #00abec;
+	font-size: 16px;
+	text-align: center;
+	line-height: 26px;
+	color: #FFF;
+	float: left;
+}
+.guide .tip .pro_name{
+	position: absolute;
+	left: -26px;
+	top: 39px;
+}
+.line{
+	float: left;
+	width: 258px;
+	border-bottom: 3px solid #C7C7CC;
+	margin-top: 13px;
+	position: relative;
+}
+.line .progress_50{
+	width: 50%;
+	position: absolute;
+	border-bottom: 3px solid #00abec;
+}
+.line .progress_100{
+	width: 100%;
+	position: absolute;
+	border-bottom: 3px solid #00abec;
+}
+#main{
+	width: 100%;
+	overflow: hidden;
+	height: auto;
+}
+.title{
+	width: 100%;
+	text-indent: 25px;
+	font-size: 16px;
+	border-bottom: 1px #ddd solid;
+	line-height: 30px;
+}
+.content{
+	
+	height:auto;
+	margin: 0 auto;
+	padding: 30px 0 30px 300px;
+}
+.group{
+	margin-bottom: 20px;
+	width: 100%;
+	overflow: hidden;
+	line-height: 33px;
+	font-size: 14px;
+}
+.group_m{
+	margin-bottom: 10px;
+}
+.lable {
+	width: 70px;
+	text-align: right;
+	float: left;
+}
+.lable span{
+	color: red;
+}
+.insert{
+	
+	margin-left: 15px;
+	float: left;
+}
+.in_1{
+	width: 297px;
+	height: 30px;
+	border:1px solid #ccc;
+	text-indent: 10px;
+}
+.in_2{
+	width: 86px;
+	border:1px solid #ccc;
+	height: 30px;
+	margin-right: 10px;
+	float: left;
+	text-indent: 10px;
+}
+.in_3{
+	width: 225px;
+	border:1px solid #ccc;
+	height: 30px;
+	text-indent: 10px;
+}
+.in_2:last-child{
+	margin-right: 0;
+}
+.insert button{
+	width: 70px;
+	height: 30px;
+	border:1px solid #ccc;
+	background: #FFF;
+	border-left: 0;
+}
+.insert .submit{
+	width: 92px;
+	height: 32px;
+	line-height: 32px;
+	color: #FFF;
+	-moz-border-radius:4px; 
+	-webkit-border-radius:4px; 
+	border-radius:4px;
+	background: #00abee;
+}
+.text-tip{
+	font-size: 12px;color: #808080;text-indent: 84px;
+}
+.g_map{
+	width: 297px;
+	height: 202px;
+	border:1px solid #ccc;
+}
+.insert .tag{
+	color: #00b3ef;
+	font-size: 12px;
+}
+.a-upload {
+    width: 297px;
+    height: 30px;
+    line-height: 30px;
+    position: relative;
+    cursor: pointer;
+    color: #00b3ef;
+    border: 1px dashed #ccc;
+    overflow: hidden;
+    display: inline-block;
+    float: left;
+    margin-right: 6px;
+    text-align: center;
+}
+
+.a-upload  input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer
+}
+.b-upload {
+    width: 145px;
+    height: 30px;
+    line-height: 30px;
+    position: relative;
+    cursor: pointer;
+    color: #00b3ef;
+    border: 1px dashed #ccc;
+    overflow: hidden;
+    display: inline-block;
+    float: left;
+    margin-right: 6px;
+    text-align: center;
+}
+
+.b-upload  input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    cursor: pointer
+}
