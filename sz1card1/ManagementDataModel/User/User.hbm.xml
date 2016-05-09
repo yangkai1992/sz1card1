@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="ManagementDataModel" namespace="ManagementDataModel.User">
+  <class name="User" table="User" lazy="true" >
+    <id name="Guid" column="Guid" type="Guid" >
+      <generator class="assigned" />
+    </id>
+
+    <property name="Account" type="string">
+      <column name="Account" length="20"/>
+    </property>
+
+    <property name="Password" type="string">
+      <column name="Password" length="30"/>
+    </property>
+
+    <property name="TrueName" type="string">
+      <column name="TrueName" length="50"/>
+    </property>
+
+    <property name="Email" type="string">
+      <column name="Email" length="20"/>
+    </property>
+
+
+    <property name="Mobile" type="string">
+      <column name="Mobile" precision="15"/>
+    </property>
+
+    <property name="AddTime" type="datetime">
+      <column name="AddTime" />
+    </property>
+
+    <property name="IsLocked" type="bool">
+      <column name="IsLocked"/>
+    </property>
+
+    <property name="Meno" type="string">
+      <column name="Meno" length="200"/>
+    </property>
+    
+    <property name="UserWeight" type="int">
+      <column name="UserWeight"/>
+    </property>
+    
+    <property name="UserWeightUsed" type="int">
+      <column name="UserWeightUsed"/>
+    </property>
+  </class>
+</hibernate-mapping>

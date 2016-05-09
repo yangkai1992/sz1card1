@@ -4,15 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C507B2C1-EFC3-4F48-99FB-E90F3972572A}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{2BAFE155-2DB9-40CB-9213-C409AFD90061}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ManagementDAL</RootNamespace>
-    <AssemblyName>ManagementDAL</AssemblyName>
+    <RootNamespace>UnitTest</RootNamespace>
+    <AssemblyName>UnitTest</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,6 +23,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -30,16 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework">
-      <HintPath>..\ManagementDataModel\bin\Debug\EntityFramework.dll</HintPath>
-    </Reference>
-    <Reference Include="Iesi.Collections">
-      <HintPath>C:\Users\yangkai\Downloads\NHibernate-4.0.4.GA-bin\Required_Bins\Iesi.Collections.dll</HintPath>
-    </Reference>
     <Reference Include="MySql.Data, Version=6.9.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
-    <Reference Include="NHibernate">
-      <HintPath>C:\Users\yangkai\Downloads\NHibernate-4.0.4.GA-bin\Required_Bins\NHibernate.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -49,18 +42,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAL\EF\BaseEntities.cs" />
-    <Compile Include="DAL\EF\User\UserDAL.cs" />
-    <Compile Include="DAL\NHibernate\UserDao.cs" />
-    <Compile Include="IDAL\IUser.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Config\MySql.cfg.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ManagementDAL\ManagementDAL.csproj">
+      <Project>{c507b2c1-efc3-4f48-99fb-e90f3972572a}</Project>
+      <Name>ManagementDAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ManagementDataModel\ManagementDataModel.csproj">
       <Project>{7a8b38fb-59a2-4362-bc2d-d872dac65da9}</Project>
       <Name>ManagementDataModel</Name>
