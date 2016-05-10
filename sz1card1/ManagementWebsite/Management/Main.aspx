@@ -351,7 +351,7 @@
                                 <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 0px">
                                     <tr>
                                         <td height="20" valign="bottom">
-                                            <span>当前登录用户：<%=CurrentUser.Account%>&nbsp;&nbsp;用户角色：<%= CurrentUser.UserGroup.GroupName%></span>
+                                            <%--<span>当前登录用户：<%=CurrentUser.Account%>&nbsp;&nbsp;用户角色：<%= CurrentUser.UserGroup.GroupName%></span>--%>
                                         </td>
                                         <td valign="bottom">
                                             <div align="right">

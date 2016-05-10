@@ -13,7 +13,7 @@ namespace ManagementWebsite.Management
         {
             if (!IsPostBack)
             {
-                xmlDSMenu.Data = CurrentUser.UserGroup.MenuXml;
+               // xmlDSMenu.Data = CurrentUser.UserGroup.MenuXml;
                 RepeaterDate1.DataBind();
             }
         }
