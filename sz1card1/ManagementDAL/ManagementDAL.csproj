@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL\EF\BaseEntities.cs" />
+    <Compile Include="DAL\EF\ManagementEntities.cs" />
     <Compile Include="DAL\EF\User\UserDAL.cs" />
     <Compile Include="DAL\NHibernate\UserDao.cs" />
     <Compile Include="IDAL\IUser.cs" />

@@ -1,12 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="ManagementDataModel" namespace="ManagementDataModel.User">
-  <class name="User" table="[User]" lazy="true" >
-    <id name="Guid" column="Guid" type="Guid" >
+<hibernate-mapping xmlns="urn:nhibernate-mapping-2.2" assembly="ManagementDataModel" namespace="ManagementDataModel.Models.User">
+  <class name="User" table="User" lazy="true" >
+    <id name="Account" column="Account" type="string" >
       <generator class="assigned" />
     </id>
 
-    <property name="Account" type="string">
-      <column name="Account" length="20"/>
+    <property name="Guid" type="Guid">
+      <column name="Guid" />
     </property>
 
     <property name="Password" type="string">

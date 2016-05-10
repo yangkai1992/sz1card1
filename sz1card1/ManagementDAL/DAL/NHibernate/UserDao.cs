@@ -1,5 +1,5 @@
 ﻿using ManagementDAL.IDAL;
-using ManagementDataModel.User;
+using ManagementDataModel.Models.User;
 using NHibernate;
 using NHibernate.Cfg;
 using System;
@@ -16,21 +16,21 @@ namespace ManagementDAL.DAL.NHibernate
 
         public UserDao()
         {
-            var cfg = new Configuration().Configure("Config/MSSQL.cfg.xml");
+            var cfg = new Configuration().Configure("Config/MySql.cfg.xml");
             sessionFactory = cfg.BuildSessionFactory();
         }
 
-        public ManagementDataModel.Models.User GetUser(Guid guid)
+        public ManagementDataModel.Models.User.User GetUser(Guid guid)
         {
             throw new NotImplementedException();
         }
 
-        public ManagementDataModel.Models.User GetUser(string account)
+        public ManagementDataModel.Models.User.User GetUser(string account)
         {
             throw new NotImplementedException();
         }
 
-        public User Get(Guid account)
+        public ManagementDataModel.Models.User.User Get(string account)
         {
             using (ISession session = sessionFactory.OpenSession())
             {

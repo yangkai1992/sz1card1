@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ManagementDataModel.User
+namespace ManagementDataModel.Models.User
 {
     [Serializable]
     public class User
@@ -20,5 +20,9 @@ namespace ManagementDataModel.User
         public virtual string Meno { get; set; }
         public virtual int UserWeight { get; set; }
         public virtual int UserWeightUsed { get; set; }
+        public virtual string Tel { get; set; }
+        public virtual string LoginTicket { get; set; }
+
+        public virtual System.Guid UserGroup { get; set; }
     }
 }
