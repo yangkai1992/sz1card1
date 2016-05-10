@@ -13,7 +13,7 @@ namespace UnitTest
         static void Main(string[] args)
         {
             UserDao userDao = new UserDao();
-            User user = userDao.Get(new Guid("9E16018F-9774-4D83-A693-1D1C7F6C1E59"));
+            User user = userDao.Get(new Guid("D637501B-8D79-490D-8E23-6919BAED0587"));
             Console.ReadKey();
         }
     }

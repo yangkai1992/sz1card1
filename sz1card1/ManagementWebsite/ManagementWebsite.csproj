@@ -450,16 +450,42 @@
     <Content Include="JS\vk_loader.js" />
     <Content Include="JS\ZeroClipboard.js" />
     <Content Include="JS\ZeroClipboard.swf" />
+    <Content Include="Management\Index.aspx" />
+    <Content Include="Management\Left.aspx" />
     <Content Include="Management\Login.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Management\Main.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Management\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Management\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Management\Left.aspx.cs">
+      <DependentUpon>Left.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Management\Left.aspx.designer.cs">
+      <DependentUpon>Left.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Management\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Management\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Management\Main.aspx.cs">
+      <DependentUpon>Main.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Management\Main.aspx.designer.cs">
+      <DependentUpon>Main.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

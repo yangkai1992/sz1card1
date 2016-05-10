@@ -16,7 +16,7 @@ namespace ManagementDAL.DAL.NHibernate
 
         public UserDao()
         {
-            var cfg = new Configuration().Configure("Config/MySql.cfg.xml");
+            var cfg = new Configuration().Configure("Config/MSSQL.cfg.xml");
             sessionFactory = cfg.BuildSessionFactory();
         }
 
