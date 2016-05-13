@@ -24,10 +24,9 @@ namespace ManagementBLL.User
             }
         }
 
-        public ManagementDataModel.Models.User GetUser(string account)
+        public static ManagementDataModel.Models.User GetUser(string account)
         {
             return IUser.GetUser(account);
         }
-        
     }
 }

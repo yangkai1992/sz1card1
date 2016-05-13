@@ -1,5 +1,5 @@
 ﻿using ManagementDAL.IDAL;
-using ManagementDataModel.Models.User;
+using ManagementDataModel.Models;
 using NHibernate;
 using NHibernate.Cfg;
 using System;
@@ -20,17 +20,17 @@ namespace ManagementDAL.DAL.NHibernate
             sessionFactory = cfg.BuildSessionFactory();
         }
 
-        public ManagementDataModel.Models.User.User GetUser(Guid guid)
+        public User GetUser(Guid guid)
         {
             throw new NotImplementedException();
         }
 
-        public ManagementDataModel.Models.User.User GetUser(string account)
+        public User GetUser(string account)
         {
             throw new NotImplementedException();
         }
 
-        public ManagementDataModel.Models.User.User Get(string account)
+        public User Get(string account)
         {
             using (ISession session = sessionFactory.OpenSession())
             {

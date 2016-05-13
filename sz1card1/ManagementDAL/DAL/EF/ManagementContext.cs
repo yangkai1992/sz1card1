@@ -1,16 +1,11 @@
-﻿using ManagementDataModel.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Remoting.Messaging;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Runtime.Remoting.Messaging;
+using ManagementDataModel.Models;
 
 namespace ManagementDAL.DAL.EF
 {
-    public class BaseEntities
+    public class ManagementContext 
     {
-        protected static ManagementEntities ManagementContext
+        protected static ManagementEntities DataContext
         {
             get
             {

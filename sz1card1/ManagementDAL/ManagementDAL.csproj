@@ -42,6 +42,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -49,8 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAL\EF\BaseEntities.cs" />
-    <Compile Include="DAL\EF\ManagementEntities.cs" />
+    <Compile Include="DAL\EF\ManagementContext.cs" />
     <Compile Include="DAL\EF\User\UserDAL.cs" />
     <Compile Include="DAL\NHibernate\UserDao.cs" />
     <Compile Include="IDAL\IUser.cs" />
@@ -69,6 +69,9 @@
       <Project>{7a8b38fb-59a2-4362-bc2d-d872dac65da9}</Project>
       <Name>ManagementDataModel</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Config\App.Config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

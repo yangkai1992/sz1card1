@@ -1,5 +1,6 @@
-﻿using ManagementDAL.DAL.NHibernate;
-using ManagementDataModel.Models.User;
+﻿using ManagementBLL.User;
+using ManagementDAL.DAL.NHibernate;
+using ManagementDataModel.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,8 +13,10 @@ namespace UnitTest
     {
         static void Main(string[] args)
         {
-            UserDao userDao = new UserDao();
-            User user = userDao.Get("yangkai");
+            //UserDao userDao = new UserDao();
+            //User user = userDao.Get("yangkai");
+            UserBLL.GetUser("yk");
+
             Console.ReadKey();
         }
     }
