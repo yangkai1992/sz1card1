@@ -57,6 +57,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Themes\Default\Default.css" />
+    <Content Include="App_Themes\Default\images\header_bg.gif" />
     <Content Include="CSS\AlipayCommon.css" />
     <Content Include="CSS\AlipayStyle.css" />
     <Content Include="CSS\autoPlay.css" />
@@ -489,7 +491,9 @@
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="App_Themes\Default\Default.skin" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="CSS\vssver2.scc" />
   </ItemGroup>
@@ -513,6 +517,12 @@
     <Content Include="JS\layouts\d\vssver2.scc" />
     <Content Include="JS\layouts\vssver2.scc" />
     <Content Include="JS\vssver2.scc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\sz1card1.Common\sz1card1.Common.csproj">
+      <Project>{998dca5e-84c4-4d43-889a-42ff9d53e005}</Project>
+      <Name>sz1card1.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

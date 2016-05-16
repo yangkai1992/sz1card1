@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Statuses>
+  <Status>
+    <ID>0</ID>
+    <Name>未完成</Name>
+  </Status>
+  <Status>
+    <ID>1</ID>
+    <Name>完成</Name>
+  </Status>
+</Statuses>

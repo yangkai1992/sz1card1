@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<PlaceStatus>
+  <Status>
+    <ID>0</ID>
+    <Name>停用</Name>
+  </Status>
+  <Status>
+    <ID>1</ID>
+    <Name>可供</Name>
+  </Status>
+  <Status>
+    <ID>2</ID>
+    <Name>占用</Name>
+  </Status>
+  <Status>
+    <ID>3</ID>
+    <Name>预定</Name>
+  </Status>
+</PlaceStatus>

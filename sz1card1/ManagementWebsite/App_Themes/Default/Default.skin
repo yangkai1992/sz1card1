@@ -1,0 +1,48 @@
+
+
+<asp:ImageButton runat="server" SkinID="CalendarImageButton" ImageUrl="~/images/minical.gif" />
+
+<sz1card1:Toolbar runat="server" Height="24" BackColor="#353c44" ForeColor="White" Width="100%">
+</sz1card1:Toolbar>
+
+<sz1card1:EntityGridView runat="server"
+			AllowPaging="true"
+            Border="0" CellPadding="0" CellSpacing="1"   
+			HeaderStyle-CssClass="table_title" 
+			PagerStyle-CssClass="grid-pager"  
+			CssClass="table-box"
+			GridLines="None"
+		    RowStyle-HorizontalAlign="Center" 
+		    HeaderStyle-HorizontalAlign="Center"
+		    Width="100%"
+		    RowMouseOverColor="#d5f4fe"
+		
+			>
+	<RowStyle CssClass="row"/>
+	<FooterStyle BackColor="#E0E0E0" />
+	<AlternatingRowStyle CssClass="alterRow" />
+</sz1card1:EntityGridView>
+<asp:GridView runat="server"
+			AllowPaging="true"
+            Border="0" CellPadding="0" CellSpacing="1"   
+			HeaderStyle-CssClass="table_title" 
+			PagerStyle-CssClass="grid-pager"  
+			CssClass="table-box"
+			GridLines="None"
+		    RowStyle-HorizontalAlign="Center" 
+		    HeaderStyle-HorizontalAlign="Center"
+		    Width="100%"
+		    RowMouseOverColor="#d5f4fe"
+		
+			>
+	<RowStyle CssClass="row"/>
+	<FooterStyle BackColor="#E0E0E0" />
+	<AlternatingRowStyle CssClass="alterRow" />
+</asp:GridView>
+<asp:DropDownList  CssClass="dropdownlist" runat="server" />
+<asp:LinkButton CssClass="linkbutton-tab"  runat="server"></asp:LinkButton>
+<asp:TextBox runat="server" CssClass="textbox" AutoComplete="off"></asp:TextBox>
+<asp:RadioButtonList runat="server" CssClass="radiobuttonlist"></asp:RadioButtonList>
+<asp:CheckBoxList CssClass="radiobuttonlist" runat="server"/>
+<asp:HyperLink runat="server" CssClass="hyperlink"/>
+<asp:Button runat="server" CssClass="button"/>

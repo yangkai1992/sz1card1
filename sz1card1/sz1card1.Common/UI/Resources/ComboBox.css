@@ -1,0 +1,178 @@
+﻿/* Version: 1.2.0.0
+ * [summary] default ComboBox stylesheet
+ * 
+ * [help] customize the style of your ComboBox:
+ *   - create your own stylesheet file.
+ *   - change the namespace "ComboBox_default", but do not change the other class names.
+ *   - change the stylesheet accordingly.
+ *   - set your stylesheet url to the "StyleSheetUrl" property. (i.e. StyleSheetUrl="~/customstyle/ComboBox.css")
+ *   - set your stylesheet namespace to the "CssClass" property. (i.e. CssClass="ComboBox_custom")
+ *   - once you have set your own stylesheet, ComboBox will link your stylesheet to your page automatically.
+ *
+ * [notice]:
+ *   - the height specified to the scroll bar (scrollbar_BCB86A76) is its minimum height.
+ */
+
+/* the text box displays the selected text or user inputted text. */
+.ComboBox_default .text_BCB86A76
+{
+	background-color: White;
+	border-top: solid 1px #7F9DB9;
+	border-left: solid 1px #7F9DB9;
+	border-bottom: solid 1px #7F9DB9;
+	border-right: none;
+	height: 18px;
+	text-align: left;
+	color: Black;
+	padding: 0px 3px 0px 3px;
+	font-size: 14px;
+}
+.ComboBox_default .text_disabled_BCB86A76
+{
+	background-color: White;
+	border-top: solid 1px #C9C7BA;
+	border-left: solid 1px #C9C7BA;
+	border-bottom: solid 1px #C9C7BA;
+	border-right: none;
+	height: 18px;
+	text-align: left;
+	color: #ACA899;
+	padding: 0px 3px 0px 3px;
+	font-size: 14px;
+}
+/* the fake button (text box actuality) with a drop down arrow which is next to the text box. */
+.ComboBox_default .arrow_BCB86A76
+{
+	background-color: #D1E0FD;
+	border-top: solid 1px #7F9DB9;
+	border-right: solid 1px #7F9DB9;
+	border-bottom: solid 1px #7F9DB9;
+	border-left: solid 1px #7F9DB9;
+	background-image: url(<%=WebResource("sz1card1.Common.UI.Resources.ComboBox_arrow_down.gif")%>);
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 15px;
+	height: 18px;
+	cursor: default;
+	padding: 0px 0px 0px 0px;
+	font-size: 14px;
+}
+.ComboBox_default .arrow_disabled_BCB86A76
+{
+	background-color: #EBEBE3;
+	border-top: solid 1px #C9C7BA;
+	border-right: solid 1px #C9C7BA;
+	border-bottom: solid 1px #C9C7BA;
+	border-left: solid 1px #C9C7BA;
+	background-image: url(<%=WebResource("sz1card1.Common.UI.Resources.ComboBox_arrow_down_disabled.gif")%>);
+	background-position: center;
+	background-repeat: no-repeat;
+	width: 15px;
+	height: 18px;
+	cursor: default;
+	padding: 0px 0px 0px 0px;
+	font-size: 14px;
+}
+/* the div contains the popup dropdownlist. */
+.ComboBox_default .popup_BCB86A76
+{
+	background-color: White;
+	border: 1px solid #7F9DB9;
+	font-size: 14px;
+}
+/* the div contains the items table. */
+.ComboBox_default .popup_BCB86A76 .container_BCB86A76
+{
+	border: none;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+}
+/* the td contains each item. */
+.ComboBox_default .popup_BCB86A76 td
+{
+	color: Black;
+	cursor: default;
+	padding: 0px 3px 0px 3px;
+	white-space: nowrap;
+	vertical-align: middle;
+}
+.ComboBox_default .popup_BCB86A76 td:hover, .ComboBox_default .popup_BCB86A76 td:active
+{
+	color: #316AC5;
+}
+/* the td contains the selected item. */
+.ComboBox_default .popup_BCB86A76 .selected_BCB86A76
+{
+	background-color: #4c83db;
+	color: White;
+}
+.ComboBox_default .popup_BCB86A76 .selected_BCB86A76 td, .ComboBox_default .popup_BCB86A76 .selected_BCB86A76 td:hover, .ComboBox_default .popup_BCB86A76 .selected_BCB86A76 td:active
+{
+	color: White;
+}
+/* the div contains the scroll */
+.ComboBox_default .popup_BCB86A76 .scroll_BCB86A76
+{
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	border-bottom: none;
+	border-top: none;
+	border-left: 1px solid #7F9DB9;
+	border-right: none;
+	width: 15px;
+	height: 100%;
+	background-color: #FBFBFB;
+}
+/* the div of the scroll up arraw. */
+.ComboBox_default .popup_BCB86A76 .scroll_BCB86A76 .arrow_up_BCB86A76
+{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	border-bottom: 1px solid #7F9DB9;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	width: 15px;
+	height: 14px;
+	background-color: #D1E0FD;
+	background-image: url(<%=WebResource("sz1card1.Common.UI.Resources.ComboBox_arrow_up.gif")%>);
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+/* the div of the scroll down arraw. */
+.ComboBox_default .popup_BCB86A76 .scroll_BCB86A76 .arrow_down_BCB86A76
+{
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	border-bottom: none;
+	border-top: 1px solid #7F9DB9;
+	border-left: none;
+	border-right: none;
+	width: 15px;
+	height: 14px;
+	background-color: #D1E0FD;
+	background-image: url(<%=WebResource("sz1card1.Common.UI.Resources.ComboBox_arrow_down.gif")%>);
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+/* the div of the scroll bar. */
+.ComboBox_default .popup_BCB86A76 .scroll_BCB86A76 .scrollbar_BCB86A76
+{
+	position: absolute;
+	top: 15px;
+	left: 0px;
+	border-bottom: 1px solid #7F9DB9;
+	border-top: 1px solid #7F9DB9;
+	border-left: none;
+	border-right: none;
+	width: 15px;
+	height: 12px;
+	background-color: #D1E0FD;
+	background-image: url(<%=WebResource("sz1card1.Common.UI.Resources.ComboBox_scrollbar.gif")%>);
+	background-position: center center;
+	background-repeat: no-repeat;
+}

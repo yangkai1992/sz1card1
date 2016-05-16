@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ThirdPayTypes>
+  <ThirdPayType>
+    <Id>0</Id>
+    <Name>支付宝</Name>
+    <Value>7</Value>
+  </ThirdPayType>
+
+  <ThirdPayType>
+    <Id>1</Id>
+    <Name>拉卡拉</Name>
+    <Value>8</Value>
+  </ThirdPayType>
+
+  <ThirdPayType>
+    <Id>2</Id>
+    <Name>微信支付</Name>
+    <Value>10</Value>
+  </ThirdPayType>
+
+  <ThirdPayType>
+    <Id>3</Id>
+    <Name>百度钱包</Name>
+    <Value>11</Value>
+  </ThirdPayType>
+
+  <ThirdPayType>
+    <Id>4</Id>
+    <Name>快钱</Name>
+    <Value>9</Value>
+  </ThirdPayType>
+</ThirdPayTypes>

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<DateTypes>
+  <Date>
+    <ID>0</ID>
+    <Name>永久</Name>
+  </Date>
+  <Date>
+    <ID>1</ID>
+    <Name>年</Name>
+  </Date>
+  <Date>
+    <ID>2</ID>
+    <Name>季度</Name>
+  </Date>
+  <Date>
+    <ID>3</ID>
+    <Name>月</Name>
+  </Date>
+  <Date>
+    <ID>4</ID>
+    <Name>周</Name>
+  </Date>
+  <Date>
+    <ID>5</ID>
+    <Name>天</Name>
+  </Date>
+  <Date>
+    <ID>6</ID>
+    <Name>小时</Name>
+  </Date>
+</DateTypes> 

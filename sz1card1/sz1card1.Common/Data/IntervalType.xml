@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<IntervalTypes>
+  <IntervalType>
+    <ID>0</ID>
+    <Name>一次性</Name>
+  </IntervalType>
+  <IntervalType>
+    <ID>1</ID>
+    <Name>每天</Name>
+  </IntervalType>
+  <IntervalType>
+    <ID>2</ID>
+    <Name>每周</Name>
+  </IntervalType>
+  <IntervalType>
+    <ID>3</ID>
+    <Name>每月</Name>
+  </IntervalType>
+  <IntervalType>
+    <ID>4</ID>
+    <Name>每年</Name>
+  </IntervalType>
+</IntervalTypes>

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<NodeTypes>
+  <NodeType>
+    <ID>1</ID>
+    <Name>Member</Name>
+    <Value>会员</Value>
+    <ImgUrl>Images/shortcut/MemberLists.png</ImgUrl>
+    <Description></Description>
+  </NodeType>
+  <NodeType>
+    <ID>2</ID>
+    <Name>GoodsItem</Name>
+    <Value>消费项目</Value>
+    <ImgUrl>Images/shortcut/GoodsItems.png</ImgUrl>
+    <Description></Description>
+  </NodeType>
+  <NodeType>
+    <ID>3</ID>
+    <Name>Gift</Name>
+    <Value>礼品</Value>
+    <ImgUrl>Images/shortcut/Gifts.png</ImgUrl>
+    <Description></Description>
+  </NodeType>
+  <NodeType>
+    <ID>4</ID>
+    <Name>User</Name>
+    <Value>用户</Value>
+    <ImgUrl>Images/shortcut/Staffs.png</ImgUrl>
+    <Description></Description>
+  </NodeType>
+  <NodeType>
+    <ID>5</ID>
+    <Name>Place</Name>
+    <Value>场地</Value>
+    <ImgUrl>Images/shortcut/PlaceFronts.png</ImgUrl>
+    <Description></Description>
+  </NodeType>
+</NodeTypes>
+

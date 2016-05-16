@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<DeductTypes>
+  <DeductType>
+    <Id>1</Id>
+    <Name>消费提成</Name>
+    <Value>1</Value>
+  </DeductType>
+
+  <DeductType>
+    <Id>2</Id>
+    <Name>售卡提成</Name>
+    <Value>2</Value>
+  </DeductType>
+
+  <DeductType>
+    <Id>3</Id>
+    <Name>充值提成</Name>
+    <Value>3</Value>
+  </DeductType>
+
+  <DeductType>
+    <Id>4</Id>
+    <Name>充次提成</Name>
+    <Value>4</Value>
+  </DeductType>
+
+  <DeductType>
+    <Id>5</Id>
+    <Name>计次提成</Name>
+    <Value>5</Value>
+  </DeductType>
+
+  <DeductType>
+    <Id>6</Id>
+    <Name>退货扣除提成</Name>
+    <Value>6</Value>
+  </DeductType>
+</DeductTypes>

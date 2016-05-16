@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="sz1card1.Common.Memcached.DataContainer">
+    <Position X="4.5" Y="0.75" Width="1.5" />
+    <Members>
+      <Method Name="DataContainer" Hidden="true" />
+      <Method Name="GetObjectData" Hidden="true" />
+      <Field Name="itemCollection" Hidden="true" />
+      <Field Name="timeout" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAgIAAAACIAAAACAAAAAAA=</HashCode>
+      <FileName>Memcached\DataContainer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="ItemCollection" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="sz1card1.Common.Memcached.DataCollection">
+    <Position X="7.5" Y="0.75" Width="1.5" />
+    <Members>
+      <Method Name="CopyTo" Hidden="true" />
+      <Method Name="DataCollection" Hidden="true" />
+      <Method Name="GetEnumerator" Hidden="true" />
+      <Method Name="GetObjectData" Hidden="true" />
+      <Field Name="internalCollection" Hidden="true" />
+      <Property Name="IsSynchronized" Hidden="true" />
+      <Property Name="SyncRoot" Hidden="true" />
+      <Property Name="this" Hidden="true" />
+      <Field Name="timeout" Hidden="true" />
+    </Members>
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAACAABAACAAAFAQgAAAAEAIACAACAABAIAA=</HashCode>
+      <FileName>Memcached\DataCollection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="sz1card1.Common.Memcached.MemcachedDataState">
+    <Position X="3.75" Y="4.25" Width="1.75" />
+    <Members>
+      <Field Name="identity" Hidden="true" />
+      <Field Name="lastOperationTime" Hidden="true" />
+      <Method Name="MemcachedDataState" Hidden="true" />
+      <Field Name="provider" Hidden="true" />
+      <Field Name="refreshTimeSpan" Hidden="true" />
+      <Method Name="ResetItemTimeout" Hidden="true" />
+      <Field Name="sectionName" Hidden="true" />
+      <Field Name="timeout" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAECAAAEAACAgAAAAAAAAAAAIAAEACAIBQAAA=</HashCode>
+      <FileName>Memcached\MemcachedDataState.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="sz1card1.Common.Memcached.MemcachedStoreProvider">
+    <Position X="0.5" Y="0.5" Width="2.75" />
+    <Members>
+      <Method Name="Dispose" Hidden="true" />
+      <Field Name="memcachedClient" Hidden="true" />
+      <Method Name="MemcachedStoreProvider" Hidden="true" />
+      <Method Name="ResetItemTimeout" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>ABAAIAAAACAABEAAAAAAAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Memcached\MemcachedStoreProvider.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="sz1card1.Common.MemcachedContext">
+    <Position X="0.5" Y="3.75" Width="2" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+    </Compartments>
+    <TypeIdentifier>
+      <HashCode>AAAAIBCAACAAAAAAAACAAAAIAAAQCAAAMACAACAAAQA=</HashCode>
+      <FileName>Memcached\MemcachedContext.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="MemcachedApplication" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="sz1card1.Common.Memcached.MemcachedApplicationDataState" Collapsed="true">
+    <Position X="6.5" Y="6" Width="2.5" />
+    <InheritanceLine Type="sz1card1.Common.Memcached.MemcachedDataState" FixedFromPoint="true">
+      <Path>
+        <Point X="5.5" Y="6.036" />
+        <Point X="6.5" Y="6.036" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Memcached\Application\MemcachedApplicationDataState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="sz1card1.Common.Memcached.MemcachedSessionDataState" Collapsed="true">
+    <Position X="6.5" Y="4" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Memcached\Session\MemcachedSessionDataState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="sz1card1.Common.Memcached.MemcachedWinIdentityDataState" Collapsed="true">
+    <Position X="6.5" Y="5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Memcached\WinIdentity\MemcachedWinIdentityDataState.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="sz1card1.Common.Memcached.Session.SessionStateDataContainer" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="1.75" Y="10.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAEAAAAAAAIAgAAAAAAIAAAACAAAAAAA=</HashCode>
+      <FileName>Memcached\Session\SessionStateDataContainer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="sz1card1.Common.Memcached.Session.MemcachedSessionStateStoreProvider" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="1.75" Y="8" Width="3" />
+    <TypeIdentifier>
+      <HashCode>IAABIIAAgCAARUQABAiAEAABAAAAACAEAgAAAAAAAAA=</HashCode>
+      <FileName>Memcached\Session\MemcachedSessionStateStoreProvider.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="sz1card1.Common.Memcached.Session.SerializableSessionStateItemCollection" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="1.75" Y="9.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>BAEAAAAAAACAABBACAAAFAQgAAAAEAAACAAAAABAKAA=</HashCode>
+      <FileName>Memcached\Session\SerializableSessionStateItemCollection.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Font Name="微软雅黑" Size="9" />
+</ClassDiagram>
