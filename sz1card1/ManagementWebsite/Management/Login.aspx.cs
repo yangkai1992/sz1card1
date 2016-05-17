@@ -16,7 +16,7 @@ namespace ManagementWebsite.Management
 
         protected void btlogin_Click(object sender, ImageClickEventArgs e)
         {
-
+            Response.Redirect("Main.aspx");
         }
     }
 }

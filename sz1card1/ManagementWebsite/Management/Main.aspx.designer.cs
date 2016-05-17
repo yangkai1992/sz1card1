@@ -47,5 +47,23 @@ namespace ManagementWebsite.Management {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label LbIpaddress;
+        
+        /// <summary>
+        /// popUserPwd 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::sz1card1.Common.UI.PopupDiv popUserPwd;
+        
+        /// <summary>
+        /// popUserMessage 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::sz1card1.Common.UI.PopupDiv popUserMessage;
     }
 }

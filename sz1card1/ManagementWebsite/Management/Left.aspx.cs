@@ -14,7 +14,7 @@ namespace ManagementWebsite.Management
             if (!IsPostBack)
             {
                // xmlDSMenu.Data = CurrentUser.UserGroup.MenuXml;
-                RepeaterDate1.DataBind();
+               // RepeaterDate1.DataBind();
             }
         }
 
