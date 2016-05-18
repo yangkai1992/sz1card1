@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Xml;
 
 namespace ManagementWebsite.Management
 {
@@ -13,8 +14,10 @@ namespace ManagementWebsite.Management
         {
             if (!IsPostBack)
             {
-               // xmlDSMenu.Data = CurrentUser.UserGroup.MenuXml;
-               // RepeaterDate1.DataBind();
+                XmlDocument xm = new XmlDocument();
+                xm.Load(Server.MapPath("menu.xml"));
+                xmlDSMenu.Data = xm.InnerXml;
+                RepeaterDate1.DataBind();
             }
         }
 
