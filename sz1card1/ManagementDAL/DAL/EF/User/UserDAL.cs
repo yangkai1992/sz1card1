@@ -18,5 +18,10 @@ namespace ManagementDAL.DAL.EF.User
         {
             return DataContext.Users.FirstOrDefault(x => x.Account == account);
         }
+
+        public List<ManagementDataModel.Models.User> GetUserList(int pageIndex,int pageSize,string orderBy)
+        {
+            return DataContext.Users.OrderBy<ManagementDataModel.Models.User,Guid>(x=>x.Guid).Skip<ManagementDataModel.Models.User>(pageIndex * pageSize).Take<ManagementDataModel.Models.User>(pageSize).ToList<ManagementDataModel.Models.User>();
+        }
     }
 }

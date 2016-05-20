@@ -37,5 +37,11 @@ namespace ManagementDAL.DAL.NHibernate
                 return session.Get<User>(account);
             }
         }
+
+
+        public List<User> GetUserList(int pageIndex, int pageSize, string orderBy)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

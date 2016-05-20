@@ -457,26 +457,16 @@
     <Content Include="Management\Login.aspx" />
     <Content Include="Management\Main.aspx" />
     <Content Include="Management\menu.xml" />
-    <Content Include="Management\User\AddUser.aspx" />
-    <Content Include="Management\User\EditGroup.aspx" />
-    <Content Include="Management\User\Leftdept.aspx" />
-    <Content Include="Management\User\RecommendList.aspx" />
-    <Content Include="Management\User\Rightdept.aspx" />
-    <Content Include="Management\User\UpdateUser.aspx" />
-    <Content Include="Management\User\UpdateUserPwd.aspx" />
     <Content Include="Management\User\UserGroup.aspx" />
     <Content Include="Management\User\UserList.aspx" />
-    <Content Include="Management\User\UserMessage.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Code\BasePage.cs" />
-    <Content Include="App_Code\HttpsRedirect.cs" />
-    <Content Include="App_Code\ISmsAPI.cs" />
-    <Content Include="App_Code\SmsAPI.cs" />
-    <Content Include="App_Code\Snapshot.cs" />
+    <Content Include="App_Code\BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Content>
     <Compile Include="Management\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -505,35 +495,19 @@
     <Compile Include="Management\Main.aspx.designer.cs">
       <DependentUpon>Main.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Management\User\AddUser.aspx.cs">
-      <DependentUpon>AddUser.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Management\User\EditGroup.aspx.cs">
-      <DependentUpon>EditGroup.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Management\User\Leftdept.aspx.cs">
-      <DependentUpon>Leftdept.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Management\User\RecommendList.aspx.cs">
-      <DependentUpon>RecommendList.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Management\User\Rightdept.aspx.cs">
-      <DependentUpon>Rightdept.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Management\User\UpdateUser.aspx.cs">
-      <DependentUpon>UpdateUser.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Management\User\UpdateUserPwd.aspx.cs">
-      <DependentUpon>UpdateUserPwd.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Management\User\UserGroup.aspx.cs">
+      <DependentUpon>UserGroup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Management\User\UserGroup.aspx.designer.cs">
       <DependentUpon>UserGroup.aspx</DependentUpon>
     </Compile>
     <Compile Include="Management\User\UserList.aspx.cs">
       <DependentUpon>UserList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Management\User\UserMessage.aspx.cs">
-      <DependentUpon>UserMessage.aspx</DependentUpon>
+    <Compile Include="Management\User\UserList.aspx.designer.cs">
+      <DependentUpon>UserList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -565,6 +539,14 @@
     <Content Include="JS\vssver2.scc" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ManagementBLL\ManagementBLL.csproj">
+      <Project>{bd275eac-70e0-409d-a778-d438cca93864}</Project>
+      <Name>ManagementBLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ManagementDataModel\ManagementDataModel.csproj">
+      <Project>{7a8b38fb-59a2-4362-bc2d-d872dac65da9}</Project>
+      <Name>ManagementDataModel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\sz1card1.Common\sz1card1.Common.csproj">
       <Project>{998dca5e-84c4-4d43-889a-42ff9d53e005}</Project>
       <Name>sz1card1.Common</Name>

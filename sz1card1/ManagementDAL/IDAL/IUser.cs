@@ -11,5 +11,6 @@ namespace ManagementDAL.IDAL
     {
         User GetUser(Guid guid);
         User GetUser(string account);
+        List<ManagementDataModel.Models.User> GetUserList(int pageIndex, int pageSize, string orderBy);
     }
 }

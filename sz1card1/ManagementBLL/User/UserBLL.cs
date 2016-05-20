@@ -28,5 +28,10 @@ namespace ManagementBLL.User
         {
             return IUser.GetUser(account);
         }
+
+        public static List<ManagementDataModel.Models.User> GetUserList(int pageIndex, int pageSize, string orderBy)
+        {
+            return IUser.GetUserList(pageIndex, pageSize, orderBy);
+        }
     }
 }

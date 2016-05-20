@@ -1,7 +1,9 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="UserList.aspx.cs" Inherits="Management_UserList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserList.aspx.cs" Inherits="ManagementWebsite.Management.User.UserList" %>
+
+<!DOCTYPE html>
 
 <html>
-<head id="Head1" runat="server">
+<head runat="server">
     <title>用户信息</title>
     <link href="../../Css/Public.css" rel="stylesheet" type="text/css" />
 
@@ -16,7 +18,7 @@
             for (var i = 0; i < input.length; i++) {
                 input[i].onkeypress = function (event) {
                     var event = event ? event : (window.event ? window.event : null); //兼容ie和ff
-                    if (event != null && event.keyCode == "13") {                        
+                    if (event != null && event.keyCode == "13") {
                         document.getElementById("btsearch").click();
                         return false;
                     }
@@ -74,7 +76,7 @@
         function getCancel() {
             PopupDiv.close('popSearchUser');
         }
-       
+
     </script>
 
 </head>
@@ -103,12 +105,12 @@
         <sz1card1:EntityGridView ID="gvUserList" runat="server" AllowChangePagesize="True"
             AllowExportToExcel="True" AllowMultiColumnSorting="False" DefaultSortDirection="Ascending"
             ExcelExportFileName="表格.xls" PageSelectorPageSizeInterval="10" PageSize="20"
-            AllowSorting="True" AutoGenerateColumns="False" DataSourceID="dataUserList" RowMouseOverColor=""
+            AllowSorting="True" AutoGenerateColumns="False" RowMouseOverColor=""
             OnRowDataBound="gvUserList_RowDataBound">
             <Columns>
                 <asp:TemplateField>
                     <HeaderTemplate>
-                        <input id="chkAll" type="checkbox" onclick="javascript:SelectAll();" />
+                        <input id="chkAll" type="checkbox" onclick="javascript: SelectAll();" />
                     </HeaderTemplate>
                     <ItemTemplate>
                         <input id="isCheck" type="checkbox" value='<%#Eval("IsLocked") %>' runat="server"
@@ -118,8 +120,8 @@
                 <asp:BoundField DataField="Account" HeaderText="工 号" HeaderStyle-Font-Bold="true"
                     HeaderStyle-ForeColor="Black" SortExpression="Account" />
                 <asp:BoundField DataField="TrueName" HeaderText="用户姓名" />
-                <asp:BoundField DataField="GroupName" HeaderText="所属部门" HeaderStyle-Font-Bold="true"
-                    HeaderStyle-ForeColor="Black" SortExpression="GroupName" />
+<%--                <asp:BoundField DataField="GroupName" HeaderText="所属部门" HeaderStyle-Font-Bold="true"
+                    HeaderStyle-ForeColor="Black" SortExpression="GroupName" />--%>
                 <asp:BoundField DataField="Email" HeaderText="客服QQ" />
                 <asp:BoundField DataField="Mobile" HeaderText="手机号码" />
                 <asp:BoundField DataField="Tel" HeaderText="联系电话" />
@@ -144,13 +146,6 @@
                 当前没有任何数据
             </EmptyDataTemplate>
         </sz1card1:EntityGridView>
-        <asp:ObjectDataSource ID="dataUserList" runat="server" EnablePaging="true" SelectMethod="GetUserPaged"
-            SortParameterName="orderBy" MaximumRowsParameterName="limit" StartRowIndexParameterName="start" OnSelecting="dataUserList_Selecting"
-            SelectCountMethod="GetCount" TypeName="sz1card1.Management.Logic.UserLogic">
-            <SelectParameters>
-                <asp:Parameter Name="where" Type="String" />
-            </SelectParameters>
-        </asp:ObjectDataSource>
         <sz1card1:PopupDiv ID="popAddUser" runat="server" Width="390px" Height="250px" Title="添加用户信息"
             Message="带*为必填信息，用户创建后用户账号不可修改">
         </sz1card1:PopupDiv>

@@ -4,14 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using sz1card1.Management.Logic;
-using System.Xml;
-using sz1card1.Management.Data.Entities;
 
-public partial class Management_User_UserGroup : BasePage
+namespace ManagementWebsite.Management.User
 {
-    protected void Page_Load(object sender, EventArgs e)
+    public partial class UserGroup : System.Web.UI.Page
     {
+        protected void Page_Load(object sender, EventArgs e)
+        {
 
+        }
     }
 }
