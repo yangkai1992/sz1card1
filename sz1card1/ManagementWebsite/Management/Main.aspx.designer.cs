@@ -55,7 +55,7 @@ namespace ManagementWebsite.Management {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::sz1card1.Common.UI.PopupDiv popUserPwd;
+        protected global::WebUserControl.UI.PopupDiv popUserPwd;
         
         /// <summary>
         /// popUserMessage 控件。
@@ -64,6 +64,6 @@ namespace ManagementWebsite.Management {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::sz1card1.Common.UI.PopupDiv popUserMessage;
+        protected global::WebUserControl.UI.PopupDiv popUserMessage;
     }
 }

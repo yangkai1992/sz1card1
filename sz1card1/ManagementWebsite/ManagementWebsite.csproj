@@ -547,9 +547,9 @@
       <Project>{7a8b38fb-59a2-4362-bc2d-d872dac65da9}</Project>
       <Name>ManagementDataModel</Name>
     </ProjectReference>
-    <ProjectReference Include="..\sz1card1.Common\sz1card1.Common.csproj">
-      <Project>{998dca5e-84c4-4d43-889a-42ff9d53e005}</Project>
-      <Name>sz1card1.Common</Name>
+    <ProjectReference Include="..\WebUserControl\WebUserControl.csproj">
+      <Project>{8a3106ec-ffe5-4df5-84f5-6872a10b3aaf}</Project>
+      <Name>WebUserControl</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

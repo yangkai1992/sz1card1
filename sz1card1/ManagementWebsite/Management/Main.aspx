@@ -389,11 +389,11 @@
                 </tr>
             </table>
         </div>
-        <sz1card1:PopupDiv ID="popUserPwd" Height="130" Width="250" Title="修改用户密码" Message="请输入原密码和新密码"
+        <webUserControl:PopupDiv ID="popUserPwd" Height="130" Width="250" Title="修改用户密码" Message="请输入原密码和新密码"
             ShowMessage="true" runat="server">
-        </sz1card1:PopupDiv>
-        <sz1card1:PopupDiv ID="popUserMessage" Height="180" Width="350" Title="用户信息" runat="server">
-        </sz1card1:PopupDiv>
+        </webUserControl:PopupDiv>
+        <webUserControl:PopupDiv ID="popUserMessage" Height="180" Width="350" Title="用户信息" runat="server">
+        </webUserControl:PopupDiv>
     </form>
 </body>
 </html>

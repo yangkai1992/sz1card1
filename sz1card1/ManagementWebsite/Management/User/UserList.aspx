@@ -83,26 +83,26 @@
 <body onload="f()">
     <form id="form1" runat="server">
     <div>
-        <sz1card1:Toolbar ID="barHeader" runat="server" OnItemPostBack="barHeader_ItemPostBack">
-            <sz1card1:ToolbarImage ID="ToolbarImage1" ItemCellDistance="20" runat="server" ImageUrl="~/Images/tb.gif"
+        <webUserControl:Toolbar ID="barHeader" runat="server">
+            <webUserControl:ToolbarImage ID="ToolbarImage1" ItemCellDistance="20" runat="server" ImageUrl="~/Images/tb.gif"
                 Width="16px" />
-            <sz1card1:ToolbarLabel ID="ToolbarLabel1" ItemCellDistance="110" runat="server" Text=" 用户基本信息列表" />
-            <sz1card1:ToolbarSeparator runat="server">
-            </sz1card1:ToolbarSeparator>
-            <sz1card1:ToolbarButton runat="server" ItemCellDistance="60" ImageUrl="../../Images/add.gif"
+            <webUserControl:ToolbarLabel ID="ToolbarLabel1" ItemCellDistance="110" runat="server" Text=" 用户基本信息列表" />
+            <webUserControl:ToolbarSeparator runat="server">
+            </webUserControl:ToolbarSeparator>
+            <webUserControl:ToolbarButton runat="server" ItemCellDistance="60" ImageUrl="../../Images/add.gif"
                 ItemId="tbAdd" LabelText="添加" OnClientClick="PopupDiv.showDialog('popAddUser','AddUser.aspx');return false;">
-            </sz1card1:ToolbarButton>
-            <sz1card1:ToolbarButton runat="server" ItemCellDistance="60" ImageUrl="../../Images/del.gif"
+            </webUserControl:ToolbarButton>
+            <webUserControl:ToolbarButton runat="server" ItemCellDistance="60" ImageUrl="../../Images/del.gif"
                 ItemId="tbUnlock" LabelText="解锁" OnClientClick="return  isCheck('解锁')">
-            </sz1card1:ToolbarButton>
-            <sz1card1:ToolbarButton runat="server" ItemCellDistance="60" ImageUrl="../../Images/del.gif"
+            </webUserControl:ToolbarButton>
+            <webUserControl:ToolbarButton runat="server" ItemCellDistance="60" ImageUrl="../../Images/del.gif"
                 ItemId="tbLock" LabelText="锁定" OnClientClick="return  isCheck('锁定')">
-            </sz1card1:ToolbarButton>
-            <sz1card1:ToolbarButton runat="server" ItemCellDistance="60" ImageUrl="../../Images/add.gif"
+            </webUserControl:ToolbarButton>
+            <webUserControl:ToolbarButton runat="server" ItemCellDistance="60" ImageUrl="../../Images/add.gif"
                 ItemId="tbselect" LabelText="查询" OnClientClick="PopupDiv.show('popSearchUser');document.getElementById('tbuserAcount').focus();return false;">
-            </sz1card1:ToolbarButton>
-        </sz1card1:Toolbar>
-        <sz1card1:EntityGridView ID="gvUserList" runat="server" AllowChangePagesize="True"
+            </webUserControl:ToolbarButton>
+        </webUserControl:Toolbar>
+        <webUserControl:EntityGridView ID="gvUserList" runat="server" AllowChangePagesize="True"
             AllowExportToExcel="True" AllowMultiColumnSorting="False" DefaultSortDirection="Ascending"
             ExcelExportFileName="表格.xls" PageSelectorPageSizeInterval="10" PageSize="20"
             AllowSorting="True" AutoGenerateColumns="False" RowMouseOverColor=""
@@ -145,14 +145,14 @@
             <EmptyDataTemplate>
                 当前没有任何数据
             </EmptyDataTemplate>
-        </sz1card1:EntityGridView>
-        <sz1card1:PopupDiv ID="popAddUser" runat="server" Width="390px" Height="250px" Title="添加用户信息"
+        </webUserControl:EntityGridView>
+        <webUserControl:PopupDiv ID="popAddUser" runat="server" Width="390px" Height="250px" Title="添加用户信息"
             Message="带*为必填信息，用户创建后用户账号不可修改">
-        </sz1card1:PopupDiv>
-        <sz1card1:PopupDiv ID="PopupEditUser" runat="server" Width="390px" Height="250px"
+        </webUserControl:PopupDiv>
+        <webUserControl:PopupDiv ID="PopupEditUser" runat="server" Width="390px" Height="250px"
             Title="编辑用户信息" Message="提示：不修改密码则可不填">
-        </sz1card1:PopupDiv>
-         <sz1card1:PopupDiv ID="popSearchUser" Width="430" Height="150" Message="请输入查询的条件!" Title="用户查询" runat="server">
+        </webUserControl:PopupDiv>
+         <webUserControl:PopupDiv ID="popSearchUser" Width="430" Height="150" Message="请输入查询的条件!" Title="用户查询" runat="server">
             <table border="0" cellpadding="0" cellspacing="0" style="margin-top: 5px; margin-left: 5px; margin-right: 5px;">
                 <tr>
                     <td class="table_label" style="width: 100px;">用户工号：
@@ -205,7 +205,7 @@
             <asp:Button ID="btnCancel" UseSubmitBehavior="false" CausesValidation="false" OnClientClick="return getCancel()"
                 runat="server" Text="取消" />
             </div>
-        </sz1card1:PopupDiv>
+        </webUserControl:PopupDiv>
     </div>
     </form>
 </body>

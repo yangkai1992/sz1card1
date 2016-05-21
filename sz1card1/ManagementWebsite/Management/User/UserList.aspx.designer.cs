@@ -28,7 +28,7 @@ namespace ManagementWebsite.Management.User {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::sz1card1.Common.UI.Toolbar barHeader;
+        protected global::WebUserControl.UI.Toolbar barHeader;
         
         /// <summary>
         /// ToolbarImage1 控件。
@@ -37,7 +37,7 @@ namespace ManagementWebsite.Management.User {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::sz1card1.Common.UI.ToolbarImage ToolbarImage1;
+        protected global::WebUserControl.UI.ToolbarImage ToolbarImage1;
         
         /// <summary>
         /// ToolbarLabel1 控件。
@@ -46,7 +46,7 @@ namespace ManagementWebsite.Management.User {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::sz1card1.Common.UI.ToolbarLabel ToolbarLabel1;
+        protected global::WebUserControl.UI.ToolbarLabel ToolbarLabel1;
         
         /// <summary>
         /// gvUserList 控件。
@@ -55,7 +55,7 @@ namespace ManagementWebsite.Management.User {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::sz1card1.Common.UI.EntityGridView gvUserList;
+        protected global::WebUserControl.UI.EntityGridView gvUserList;
         
         /// <summary>
         /// popAddUser 控件。
@@ -64,7 +64,7 @@ namespace ManagementWebsite.Management.User {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::sz1card1.Common.UI.PopupDiv popAddUser;
+        protected global::WebUserControl.UI.PopupDiv popAddUser;
         
         /// <summary>
         /// PopupEditUser 控件。
@@ -73,7 +73,7 @@ namespace ManagementWebsite.Management.User {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::sz1card1.Common.UI.PopupDiv PopupEditUser;
+        protected global::WebUserControl.UI.PopupDiv PopupEditUser;
         
         /// <summary>
         /// popSearchUser 控件。
@@ -82,7 +82,7 @@ namespace ManagementWebsite.Management.User {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::sz1card1.Common.UI.PopupDiv popSearchUser;
+        protected global::WebUserControl.UI.PopupDiv popSearchUser;
         
         /// <summary>
         /// tbuserAcount 控件。

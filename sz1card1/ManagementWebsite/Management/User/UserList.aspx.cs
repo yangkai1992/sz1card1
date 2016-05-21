@@ -12,15 +12,24 @@ namespace ManagementWebsite.Management.User
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            gvUserList.DataSource = UserBLL.GetUserList(0, 20, "");
+            List<ManagementDataModel.Models.User> list = new List<ManagementDataModel.Models.User>();
+            ManagementDataModel.Models.User user = null;
+            for (int i = 0; i < 10; i++)
+            {
+                user = new ManagementDataModel.Models.User()
+                {
+                    Guid = Guid.NewGuid(),
+                    Account = i.ToString(),
+                    TrueName = i.ToString() + i.ToString(),
+                };
+                list.Add(user);
+            }
+
+            gvUserList.DataSource = list;                           //UserBLL.GetUserList(0, 20, "");
             gvUserList.DataBind();
             
         }
 
-        protected void barHeader_ItemPostBack(sz1card1.Common.UI.ToolbarItem item)
-        {
-
-        }
 
         protected void lbDelete_Command(object sender, CommandEventArgs e)
         {

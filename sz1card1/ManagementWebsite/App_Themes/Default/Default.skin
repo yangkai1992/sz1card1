@@ -2,10 +2,10 @@
 
 <asp:ImageButton runat="server" SkinID="CalendarImageButton" ImageUrl="~/images/minical.gif" />
 
-<sz1card1:Toolbar runat="server" Height="24" BackColor="#353c44" ForeColor="White" Width="100%">
-</sz1card1:Toolbar>
+<webUserControl:Toolbar runat="server" Height="24" BackColor="#353c44" ForeColor="White" Width="100%">
+</webUserControl:Toolbar>
 
-<sz1card1:EntityGridView runat="server"
+<webUserControl:EntityGridView runat="server"
 			AllowPaging="true"
             Border="0" CellPadding="0" CellSpacing="1"   
 			HeaderStyle-CssClass="table_title" 
@@ -21,7 +21,7 @@
 	<RowStyle CssClass="row"/>
 	<FooterStyle BackColor="#E0E0E0" />
 	<AlternatingRowStyle CssClass="alterRow" />
-</sz1card1:EntityGridView>
+</webUserControl:EntityGridView>
 <asp:GridView runat="server"
 			AllowPaging="true"
             Border="0" CellPadding="0" CellSpacing="1"   
