@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTest", "UnitTest\UnitTe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "sz1card1.Common", "sz1card1.Common\sz1card1.Common.csproj", "{998DCA5E-84C4-4D43-889A-42FF9D53E005}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebUserControl", "WebUserControl\WebUserControl.csproj", "{8A3106EC-FFE5-4DF5-84F5-6872A10B3AAF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{998DCA5E-84C4-4D43-889A-42FF9D53E005}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{998DCA5E-84C4-4D43-889A-42FF9D53E005}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{998DCA5E-84C4-4D43-889A-42FF9D53E005}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A3106EC-FFE5-4DF5-84F5-6872A10B3AAF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A3106EC-FFE5-4DF5-84F5-6872A10B3AAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A3106EC-FFE5-4DF5-84F5-6872A10B3AAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A3106EC-FFE5-4DF5-84F5-6872A10B3AAF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

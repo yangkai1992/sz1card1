@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8A3106EC-FFE5-4DF5-84F5-6872A10B3AAF}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebUserControl</RootNamespace>
+    <AssemblyName>WebUserControl</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\ComboBox.cs" />
+    <Compile Include="UI\ControlContainerItem.cs" />
+    <Compile Include="UI\CssStyle\CssStyleUtility.cs" />
+    <Compile Include="UI\DataPager.cs" />
+    <Compile Include="UI\DragDrop.cs" />
+    <Compile Include="UI\DragDropPanel.cs" />
+    <Compile Include="UI\DragDropPanelCollection.cs" />
+    <Compile Include="UI\DropDownCheckList.cs" />
+    <Compile Include="UI\EntityGridView.cs" />
+    <Compile Include="UI\FixedReportViewer.cs" />
+    <Compile Include="UI\IImageItem.cs" />
+    <Compile Include="UI\IPostBackToolbarItem.cs" />
+    <Compile Include="UI\ItemCollectionEditor.cs" />
+    <Compile Include="UI\IToolbarItem.cs" />
+    <Compile Include="UI\LabeledToolbarItem.cs" />
+    <Compile Include="UI\MobileOperatorSeletor.cs" />
+    <Compile Include="UI\PercentageBar.cs" />
+    <Compile Include="UI\PopupDiv.cs" />
+    <Compile Include="UI\RegionSelector.cs" />
+    <Compile Include="UI\RightsSelector.cs" />
+    <Compile Include="UI\SubContainerControlDesigner.cs" />
+    <Compile Include="UI\SubmitOnceButton.cs" />
+    <Compile Include="UI\TabOption.cs" />
+    <Compile Include="UI\TabOptionItem.cs" />
+    <Compile Include="UI\TabOptionItemCollection.cs" />
+    <Compile Include="UI\Toolbar.cs" />
+    <Compile Include="UI\ToolbarButton.cs" />
+    <Compile Include="UI\ToolbarDesigner.cs" />
+    <Compile Include="UI\ToolbarImage.cs" />
+    <Compile Include="UI\ToolbarItem.cs" />
+    <Compile Include="UI\ToolbarItemCollection.cs" />
+    <Compile Include="UI\ToolbarLabel.cs" />
+    <Compile Include="UI\ToolbarLink.cs" />
+    <Compile Include="UI\ToolbarSeparator.cs" />
+    <Compile Include="UI\ToolbarTextBox.cs" />
+    <Compile Include="UI\WapDataPager.cs" />
+    <Compile Include="UI\XmlDropDownList.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UI\Resources\close.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UI\Resources\ComboBox.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UI\Resources\ComboBox.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UI\Resources\ComboBox.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UI\Resources\ComboBox_arrow_down.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UI\Resources\ComboBox_arrow_down_disabled.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UI\Resources\ComboBox_arrow_up.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UI\Resources\ComboBox_scrollbar.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UI\Resources\Common.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UI\Resources\DragDrop.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UI\Resources\DropDownCheckList.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UI\Resources\excel.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UI\Resources\expand.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="UI\Resources\PopupDiv.js" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
