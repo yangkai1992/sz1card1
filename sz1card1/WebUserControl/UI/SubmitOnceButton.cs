@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Web.UI;
 
-namespace sz1card1.Common.UI
+namespace WebUserControl.UI
 {
     public class SubmitOnceButton: System.Web.UI.WebControls.Button
     {

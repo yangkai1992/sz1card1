@@ -1,16 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.IO;
-using System.Web;
 using System.ComponentModel;
 using System.Web.UI;
-using System.Web.UI.Design;
 using System.Web.UI.WebControls;
 
-[assembly: WebResource("sz1card1.Common.UI.Resources.DragDrop.js", "text/javascript")]
-namespace sz1card1.Common.UI
+[assembly: WebResource("WebUserControl.UI.Resources.DragDrop.js", "text/javascript")]
+namespace WebUserControl.UI
 {
     [
         ToolboxData("<{0}:DragDrop runat=\"server\"></{0}:DragDrop>"),
@@ -55,7 +49,7 @@ namespace sz1card1.Common.UI
         {
             if (!Page.ClientScript.IsClientScriptIncludeRegistered("DragDrop"))
             {
-                Page.ClientScript.RegisterClientScriptInclude("DragDrop", Page.ClientScript.GetWebResourceUrl(this.GetType(), "sz1card1.Common.UI.Resources.DragDrop.js"));
+                Page.ClientScript.RegisterClientScriptInclude("DragDrop", Page.ClientScript.GetWebResourceUrl(this.GetType(), "WebUserControl.UI.Resources.DragDrop.js"));
             }
             Page.ClientScript.RegisterStartupScript(this.GetType(), "InitDragDrop", "window.onload=function(){var _table = document.getElementById('"+ID+"');_IG_initDrag(_table);};",true);
             base.OnPreRender(e);

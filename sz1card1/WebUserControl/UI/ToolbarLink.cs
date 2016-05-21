@@ -4,7 +4,7 @@ using System.Web.UI;
 using System.ComponentModel;
 using System.Drawing.Design;
 
-namespace sz1card1.Common.UI
+namespace WebUserControl.UI
 {
     /// <summary>
     /// Renders a link with a simple image.

@@ -2,10 +2,11 @@
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.ComponentModel;
-using sz1card1.Common.Delegate;
+using WebUserControl.Delegate;
 
-namespace sz1card1.Common.UI
+namespace WebUserControl.UI
 {
+   
     /// <summary>
     /// Composite control that renders a simple textbox.
     /// </summary>

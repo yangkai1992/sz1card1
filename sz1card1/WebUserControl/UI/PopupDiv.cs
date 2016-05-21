@@ -1,16 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.IO;
-using System.Web;
 using System.ComponentModel;
 using System.Web.UI;
-using System.Web.UI.Design;
 using System.Web.UI.WebControls;
 
-[assembly: WebResource("sz1card1.Common.UI.Resources.PopupDiv.js", "text/javascript")]
-namespace sz1card1.Common.UI
+[assembly: WebResource("WebUserControl.UI.Resources.PopupDiv.js", "text/javascript")]
+namespace WebUserControl.UI
 {
     [
         ToolboxData("<{0}:PopupDiv runat=\"server\"></{0}:PopupDiv>"),
@@ -127,7 +121,7 @@ namespace sz1card1.Common.UI
         {
             if (!Page.ClientScript.IsClientScriptIncludeRegistered("PopupDiv"))
             {
-                Page.ClientScript.RegisterClientScriptInclude("PopupDiv", Page.ClientScript.GetWebResourceUrl(this.GetType(), "sz1card1.Common.UI.Resources.PopupDiv.js"));
+                Page.ClientScript.RegisterClientScriptInclude("PopupDiv", Page.ClientScript.GetWebResourceUrl(this.GetType(), "WebUserControl.UI.Resources.PopupDiv.js"));
             }
             Page.ClientScript.RegisterStartupScript(this.GetType(), "drag_" + ID, "window.Drag.init($('_draghandle__" + ID + "'), $('" + ID + "'));", true);
             base.OnPreRender(e);

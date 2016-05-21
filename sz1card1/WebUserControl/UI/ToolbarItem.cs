@@ -3,7 +3,7 @@ using System.Web.UI.WebControls;
 using System.Web.UI;
 using System.ComponentModel;
 
-namespace sz1card1.Common.UI
+namespace WebUserControl.UI
 {
     /// <summary>
     /// Abstract base class for all items of the toolbar.

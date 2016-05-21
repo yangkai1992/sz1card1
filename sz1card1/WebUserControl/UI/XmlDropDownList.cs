@@ -1,19 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.Linq;
-using System.Text;
 using System.ComponentModel;
 using System.Web;
 using System.Web.UI;
-using System.Web.UI.Design;
 using System.Web.UI.WebControls;
 using System.Xml.Linq;
 using System.IO;
 using System.Reflection;
-using sz1card1.Common.Enum;
+using WebUserControl.Enum;
 
-namespace sz1card1.Common.UI
+namespace WebUserControl.UI
 {
     [ValidationProperty("SelectedValue")]
     public class XmlDropDownList : WebControl, IPostBackDataHandler
@@ -131,7 +128,7 @@ namespace sz1card1.Common.UI
                 StreamReader reader;
                 if (XmlType != XmlTypes.None)
                 {
-                    Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(string.Format("sz1card1.Common.Data.{0}.xml", XmlType));
+                    Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(string.Format("WebUserControl.Data.{0}.xml", XmlType));
                     reader = new StreamReader(stream);
                 }
                 else

@@ -1,18 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using sz1card1.Common.Enum;
-using sz1card1.Common.UI.CssStyle;
+using WebUserControl.Enum;
+using WebUserControl.UI.CssStyle;
 
-[assembly: WebResource("sz1card1.Common.UI.Resources.expand.gif", "image/gif")]
-[assembly: WebResource("sz1card1.Common.UI.Resources.DropDownCheckList.js", "text/javascript")]
-namespace sz1card1.Common.UI
+[assembly: WebResource("WebUserControl.UI.Resources.expand.gif", "image/gif")]
+[assembly: WebResource("WebUserControl.UI.Resources.DropDownCheckList.js", "text/javascript")]
+namespace WebUserControl.UI
 {
     [ToolboxData("<{0}:DropDownCheckList runat=server></{0}:DropDownCheckList>"), DefaultProperty("TextWhenNoneChecked")]
     public class DropDownCheckList : CheckBoxList
@@ -597,7 +594,7 @@ namespace sz1card1.Common.UI
             string sSrc = string.Empty;
             if (string.IsNullOrEmpty(ClientCodeLocation))
             {
-                sSrc = Page.ClientScript.GetWebResourceUrl(this.GetType(), "sz1card1.Common.UI.Resources.DropDownCheckList.js");
+                sSrc = Page.ClientScript.GetWebResourceUrl(this.GetType(), "WebUserControl.UI.Resources.DropDownCheckList.js");
             }
             else
             {
@@ -686,7 +683,7 @@ namespace sz1card1.Common.UI
         {
             if (string.IsNullOrEmpty(_dropImageSrc))
             {
-                _dropImageSrc = Page.ClientScript.GetWebResourceUrl(this.GetType(), "sz1card1.Common.UI.Resources.expand.gif");
+                _dropImageSrc = Page.ClientScript.GetWebResourceUrl(this.GetType(), "WebUserControl.UI.Resources.expand.gif");
             }
             output.Write("<td>");
             output.Write("<img");

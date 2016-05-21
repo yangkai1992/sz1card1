@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Web.UI.Design;
-using System.Drawing.Design;
-using System.ComponentModel;
-using System.ComponentModel.Design;
 using System.Web.UI.WebControls;
 
-namespace sz1card1.Common.UI
+namespace WebUserControl.UI
 {
     /// <summary>
     /// Toolbar设计器

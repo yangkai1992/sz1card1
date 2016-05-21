@@ -2,11 +2,10 @@
 using System.ComponentModel;
 using System.Drawing.Design;
 
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace sz1card1.Common.UI
+namespace WebUserControl.UI
 {
     /// <summary>
     /// Renders a plain image with optional rollovers and

@@ -1,13 +1,11 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Specialized;
 
 using System.ComponentModel;
-using System.ComponentModel.Design;
 using System.Drawing.Design;
-using sz1card1.Common.Delegate;
+using WebUserControl.Delegate;
 
-namespace sz1card1.Common.UI
+namespace WebUserControl.UI
 {
     /// <summary>
     /// Maintains a collection of <see cref="TollbarItem"/>

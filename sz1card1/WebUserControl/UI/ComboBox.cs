@@ -47,19 +47,19 @@ using System.Drawing;
 
 #region [ web resource ]
 
-[assembly: System.Web.UI.WebResource("sz1card1.Common.UI.Resources.Common.js", "text/javascript")]
-[assembly: System.Web.UI.WebResource("sz1card1.Common.UI.Resources.ComboBox.js", "text/javascript")]
-[assembly: System.Web.UI.WebResource("sz1card1.Common.UI.Resources.ComboBox.css", "text/css", PerformSubstitution = true)]
-[assembly: System.Web.UI.WebResource("sz1card1.Common.UI.Resources.ComboBox_arrow_down.gif", "image/gif")]
-[assembly: System.Web.UI.WebResource("sz1card1.Common.UI.Resources.ComboBox_arrow_up.gif", "image/gif")]
-[assembly: System.Web.UI.WebResource("sz1card1.Common.UI.Resources.ComboBox_scrollbar.gif", "image/gif")]
-[assembly: System.Web.UI.WebResource("sz1card1.Common.UI.Resources.ComboBox_arrow_down_disabled.gif", "image/gif")]
+[assembly: System.Web.UI.WebResource("WebUserControl.UI.Resources.Common.js", "text/javascript")]
+[assembly: System.Web.UI.WebResource("WebUserControl.UI.Resources.ComboBox.js", "text/javascript")]
+[assembly: System.Web.UI.WebResource("WebUserControl.UI.Resources.ComboBox.css", "text/css", PerformSubstitution = true)]
+[assembly: System.Web.UI.WebResource("WebUserControl.UI.Resources.ComboBox_arrow_down.gif", "image/gif")]
+[assembly: System.Web.UI.WebResource("WebUserControl.UI.Resources.ComboBox_arrow_up.gif", "image/gif")]
+[assembly: System.Web.UI.WebResource("WebUserControl.UI.Resources.ComboBox_scrollbar.gif", "image/gif")]
+[assembly: System.Web.UI.WebResource("WebUserControl.UI.Resources.ComboBox_arrow_down_disabled.gif", "image/gif")]
 
 #endregion
 
-namespace sz1card1.Common.UI
+namespace WebUserControl.UI
 {
-    [ToolboxBitmap(typeof(ComboBox), "sz1card1.Common.UI.Resources.ComboBox.ico")]
+    [ToolboxBitmap(typeof(ComboBox), "WebUserControl.UI.Resources.ComboBox.ico")]
     [ToolboxData("<{0}:ComboBox runat=server></{0}:ComboBox>"), DefaultProperty("RenderMode"), DefaultEvent("ComboBoxChanged")]
     public class ComboBox : ListControl, INamingContainer, IScriptControl, IPostBackDataHandler, IPostBackEventHandler
     {
@@ -452,7 +452,7 @@ namespace sz1card1.Common.UI
         protected virtual void RegisterCssReferences()
         {
             bool bRegistered = false;
-            string styleSheetId = "sz1card1.Common.UI_ComboBox_StyleSheet_BCB86A76";
+            string styleSheetId = "WebUserControl.UI_ComboBox_StyleSheet_BCB86A76";
             if (this.StyleSheetUrl != string.Empty) styleSheetId += "_" + this.StyleSheetUrl.GetHashCode().ToString().Replace("-", string.Empty);
 
             foreach (Control ctrl in this.Page.Header.Controls)
@@ -467,7 +467,7 @@ namespace sz1card1.Common.UI
                 link.Attributes.Add("rel", "stylesheet");
                 if (this.StyleSheetUrl == string.Empty)
                 {
-                    link.Attributes.Add("href", this.Page.ClientScript.GetWebResourceUrl(this.GetType(), "sz1card1.Common.UI.Resources.ComboBox.css"));
+                    link.Attributes.Add("href", this.Page.ClientScript.GetWebResourceUrl(this.GetType(), "WebUserControl.UI.Resources.ComboBox.css"));
                 }
                 else
                 {
@@ -515,12 +515,6 @@ namespace sz1card1.Common.UI
         #endregion
 
         #region [ event ]
-
-        [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
-        public new event EventHandler SelectedIndexChanged;
-
-        [Browsable(false), EditorBrowsable(EditorBrowsableState.Never)]
-        public new event EventHandler TextChanged;
 
         [Category("Action"), Description("Fires when the selected index or the text box value has been changed.")]
         public event EventHandler ComboBoxChanged;
@@ -570,8 +564,8 @@ namespace sz1card1.Common.UI
         {
             ScriptReference[] references = new ScriptReference[2];
 
-            references[0] = new ScriptReference("sz1card1.Common.UI.Resources.Common.js", this.GetType().Assembly.FullName);
-            references[1] = new ScriptReference("sz1card1.Common.UI.Resources.ComboBox.js", this.GetType().Assembly.FullName);
+            references[0] = new ScriptReference("WebUserControl.UI.Resources.Common.js", this.GetType().Assembly.FullName);
+            references[1] = new ScriptReference("WebUserControl.UI.Resources.ComboBox.js", this.GetType().Assembly.FullName);
 
             return references;
         }

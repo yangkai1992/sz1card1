@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 using System.ComponentModel;
 
-namespace sz1card1.Common.UI
+namespace WebUserControl.UI
 {
     /// <summary>
     /// Renders a simple label.

@@ -1,13 +1,12 @@
 ﻿using System;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.ComponentModel;
 using System.Drawing.Design;
-using sz1card1.Common.Enum;
-using sz1card1.Common.Delegate;
+using WebUserControl.Enum;
+using WebUserControl.Delegate;
 
-namespace sz1card1.Common.UI
+namespace WebUserControl.UI
 {
     /// <summary>
     /// Renders a toolbar control which acts as a container

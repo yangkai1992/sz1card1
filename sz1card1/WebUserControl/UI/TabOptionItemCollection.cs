@@ -1,10 +1,9 @@
 ﻿using System;
-using System.Reflection;
 using System.Security.Permissions;
 using System.Web;
 using System.Web.UI;
 
-namespace sz1card1.Common.UI
+namespace WebUserControl.UI
 {
     /// <summary>
     /// 选项卡集合

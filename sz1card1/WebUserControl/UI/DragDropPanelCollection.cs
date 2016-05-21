@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Reflection;
 using System.Security.Permissions;
 using System.Web;
-using System.Drawing.Design;
 using System.Web.UI;
 
-namespace sz1card1.Common.UI
+namespace WebUserControl.UI
 {
     [AspNetHostingPermission(SecurityAction.LinkDemand, Level = AspNetHostingPermissionLevel.Minimal), AspNetHostingPermission(SecurityAction.InheritanceDemand, Level = AspNetHostingPermissionLevel.Minimal)]
     public class DragDropPanelCollection : ControlCollection

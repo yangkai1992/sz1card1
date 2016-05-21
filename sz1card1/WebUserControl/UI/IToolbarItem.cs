@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace sz1card1.Common.UI
+﻿
+namespace WebUserControl.UI
 {
     /// <summary>
     /// Common interface of all items that can be plugged into

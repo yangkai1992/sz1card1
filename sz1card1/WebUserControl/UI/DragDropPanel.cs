@@ -1,17 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.IO;
-using System.Web;
-using System.Drawing;
+﻿using System.Drawing;
 using System.ComponentModel;
 using System.Web.UI;
-using System.Web.UI.Design;
 using System.Web.UI.WebControls;
 
-[assembly: WebResource("sz1card1.Common.UI.Resources.close.gif", "image/gif")]
-namespace sz1card1.Common.UI
+[assembly: WebResource("WebUserControl.UI.Resources.close.gif", "image/gif")]
+namespace WebUserControl.UI
 {
     [
         ToolboxData("<{0}:DragDropPanel runat=\"server\"></{0}:DragDropPanel>"),
@@ -139,7 +132,7 @@ namespace sz1card1.Common.UI
         {
             writer.Write(string.Format("<div id=\"{0}_h\" style=\"height:20px;border-right: #eaf0f6 1px solid; padding-right: 2px; padding-left: 2px;padding-bottom: 2px; margin: 0px; cursor: pointer; padding-top: 2px; border-bottom: #ccc 1px solid;background-color: {1}\">", ID, ColorTranslator.ToHtml(headerBgColor)));
             writer.Write("<table border=\"0\" cellpadding=\"0\" cellspacing=\"0\" width=\"100%;height:20px\">");
-            writer.Write(string.Format("<tr><td style=\"text-align:left;font-weight:bold;padding-left:3px;padding-top:3px\">{0}</td><td style=\"text-align:right;padding-right:3px\"><img src=\"{1}\" onclick=\"_IG_closePanel('{2}');\" alt=\"关闭\" style=\"cursor:pointer\"/></td></tr>", headerOnClientClick == string.Empty ? Title : "<a href=\"#\" onclick=\"" + headerOnClientClick + "\" style=\"text-decoration:underline\">" + Title + "</a>", Page.ClientScript.GetWebResourceUrl(this.GetType(), "sz1card1.Common.UI.Resources.close.gif"), ID));
+            writer.Write(string.Format("<tr><td style=\"text-align:left;font-weight:bold;padding-left:3px;padding-top:3px\">{0}</td><td style=\"text-align:right;padding-right:3px\"><img src=\"{1}\" onclick=\"_IG_closePanel('{2}');\" alt=\"关闭\" style=\"cursor:pointer\"/></td></tr>", headerOnClientClick == string.Empty ? Title : "<a href=\"#\" onclick=\"" + headerOnClientClick + "\" style=\"text-decoration:underline\">" + Title + "</a>", Page.ClientScript.GetWebResourceUrl(this.GetType(), "WebUserControl.UI.Resources.close.gif"), ID));
             writer.Write("</table>");
             writer.Write("</div>");
             writer.Write("<div style=\"overflow:hidden\">");

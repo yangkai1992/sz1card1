@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
 using System.Web.UI;
@@ -10,8 +9,9 @@ using System.Collections.Specialized;
 using System.Web.UI.WebControls;
 using System.Reflection;
 using System.Collections;
+using WebUserControl.Common;
 
-namespace sz1card1.Common.UI
+namespace WebUserControl.UI
 {
     /// <summary>
     /// 省地市三级联动
@@ -353,7 +353,7 @@ namespace sz1card1.Common.UI
 
         private IEnumerable GetAllCity()
         {
-            using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("sz1card1.Common.Data.Region.xml"))
+            using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("WebUserControl.Data.Region.xml"))
             {
                 TextReader reader = new StreamReader(stream);
                 var allItems = from e in XElement.Load(reader).Elements().Elements()
@@ -382,7 +382,7 @@ namespace sz1card1.Common.UI
 
         private IEnumerable GetAllCounty()
         {
-            using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("sz1card1.Common.Data.Region.xml"))
+            using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("WebUserControl.Data.Region.xml"))
             {
                 TextReader reader = new StreamReader(stream);
                 var allItems = from p in XElement.Load(reader).Elements().Elements().Elements()
@@ -420,7 +420,7 @@ namespace sz1card1.Common.UI
             sb.Append("<option value=\"\">请选择...</option>");
             if (!DesignMode)
             {
-                using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("sz1card1.Common.Data.Province.xml"))
+                using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("WebUserControl.Data.Province.xml"))
                 {
                     TextReader reader = new StreamReader(stream);
                     var items = from p in XElement.Load(reader).Elements()
@@ -466,7 +466,7 @@ namespace sz1card1.Common.UI
             {
                 if (ProvinceID != "")
                 {
-                    using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("sz1card1.Common.Data.City.xml"))
+                    using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("WebUserControl.Data.City.xml"))
                     {
                         TextReader reader = new StreamReader(stream);
                         var items = from c in XElement.Load(reader).Elements()
@@ -514,7 +514,7 @@ namespace sz1card1.Common.UI
             {
                 if (CityID != "")
                 {
-                    using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("sz1card1.Common.Data.County.xml"))
+                    using (Stream stream = Assembly.GetExecutingAssembly().GetManifestResourceStream("WebUserControl.Data.County.xml"))
                     {
                         TextReader reader = new StreamReader(stream);
                         var items = from c in XElement.Load(reader).Elements()

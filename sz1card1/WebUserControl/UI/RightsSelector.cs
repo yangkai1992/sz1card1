@@ -1,18 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Text;
 using System.Web.UI;
 using System.IO;
 using System.Web.UI.WebControls;
-using System.Reflection;
 using System.Xml;
 using System.Xml.XPath;
 using System.Web.UI.Design;
 using System.Drawing.Design;
 using System.Web;
 
-namespace sz1card1.Common.UI
+namespace WebUserControl.UI
 {
     /// <summary>
     /// 权限选择器

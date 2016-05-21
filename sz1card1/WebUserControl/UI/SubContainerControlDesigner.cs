@@ -1,16 +1,8 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Specialized;
-using System.Design;
-using System.Drawing;
-using System.Globalization;
-using System.Security.Permissions;
-using System.Web;
-using System.Web.UI;
+﻿using System.Security.Permissions;
 using System.Web.UI.WebControls;
 using System.Web.UI.Design;
 
-namespace sz1card1.Common.UI
+namespace WebUserControl.UI
 {
     /// <summary>
     /// 选项卡编辑类

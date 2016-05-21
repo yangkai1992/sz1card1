@@ -1,19 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.IO;
 using System.Web;
 using System.ComponentModel;
 using System.Web.UI;
-using System.Web.UI.Design;
 using System.Web.UI.WebControls;
 using System.Drawing;
-using System.Drawing.Imaging;
-using System.Drawing.Drawing2D;
-using System.Drawing.Printing;
 
-namespace sz1card1.Common.UI
+namespace WebUserControl.UI
 {
     [
         ToolboxData("<{0}:PercentageBar runat=\"server\"></{0}:PercentageBar>")

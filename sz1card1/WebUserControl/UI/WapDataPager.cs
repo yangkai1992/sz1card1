@@ -1,16 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.IO;
 using System.Web;
 using System.ComponentModel;
 using System.Web.UI;
-using System.Web.UI.Design;
 using System.Web.UI.WebControls;
-using sz1card1.Common.Enum;
+using WebUserControl.Enum;
 
-namespace sz1card1.Common.UI
+namespace WebUserControl.UI
 {
 
     [DefaultProperty("PageSize")]

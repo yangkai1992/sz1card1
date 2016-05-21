@@ -1,7 +1,6 @@
 ﻿using System;
-using System.ComponentModel;
 
-namespace sz1card1.Common.UI
+namespace WebUserControl.UI
 {
     public class ItemCollectionEditor : System.ComponentModel.Design.CollectionEditor
     {

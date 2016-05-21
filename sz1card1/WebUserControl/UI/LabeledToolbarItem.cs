@@ -1,11 +1,10 @@
 ﻿using System;
 using System.ComponentModel;
-using System.Drawing.Design;
 
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace sz1card1.Common.UI
+namespace WebUserControl.UI
 {
     public abstract class LabeledToolbarItem : ToolbarItem
     {

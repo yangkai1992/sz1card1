@@ -1,19 +1,13 @@
 ﻿#region Using directives
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Text;
 using System.Web.UI;
-using System.IO;
 using System.Web.UI.WebControls;
-using System.Data;
-using sz1card1.Common.Excel;
-using System.Text.RegularExpressions;
-using System.Web;
+
 #endregion
 
-[assembly: WebResource("sz1card1.Common.UI.Resources.excel.gif", "image/gif")]
-namespace sz1card1.Common.UI
+[assembly: WebResource("WebUserControl.UI.Resources.excel.gif", "image/gif")]
+namespace WebUserControl.UI
 {
     /// <summary>
     /// Inherits all features of instinct GridView Control, also provides multi-sort, control of page size, export data to excel, etc.
@@ -43,15 +37,6 @@ namespace sz1card1.Common.UI
         /// </summary>
         public event EventHandler PageSizeChanged;
 
-        /// <summary>
-        /// ExcelBeforeFormat event raised before control format
-        /// </summary>
-        public event ExcelFormatEventHandler ExcelBeforeFormat;
-
-        /// <summary>
-        /// ExcelAfterFormat event raised after the control is formated
-        /// </summary>
-        public event ExcelFormatEventHandler ExcelAfterFormat;
 
         #region Properties
         /// <summary>
@@ -128,7 +113,7 @@ namespace sz1card1.Common.UI
             {
                 if (_exportToExcelText == string.Empty)
                 {
-                    _exportToExcelText = string.Format("<img src='{0} border='0'/>", Page.ClientScript.GetWebResourceUrl(this.GetType(), "sz1card1.Common.UI.Resources.excel.gif"));
+                    _exportToExcelText = string.Format("<img src='{0} border='0'/>", Page.ClientScript.GetWebResourceUrl(this.GetType(), "WebUserControl.UI.Resources.excel.gif"));
                 }
                 return _exportToExcelText;
             }
@@ -576,14 +561,6 @@ namespace sz1card1.Common.UI
             cell.ApplyStyle(this.PagerStyle);
             pagerTableRow.Cells.Add(cell);
 
-            if (_allowExportToExcel) //AllowExportToExcel
-            {
-                cell = new TableCell();
-                cell.Controls.Add(ExcelButton());
-                cell.Wrap = false;
-                cell.ApplyStyle(this.PagerStyle);
-                pagerTableRow.Cells.Add(cell);
-            }
             if (_allowChangePageSize)
             {
                 cell = new TableCell();
@@ -599,71 +576,9 @@ namespace sz1card1.Common.UI
                 pagerTableRow.Cells.Add(cell);
             }
         }
-
-        private LinkButton ExcelButton()
-        {
-            LinkButton lnkExport = new LinkButton();
-            lnkExport.ID = "lnkExport";
-            lnkExport.ToolTip = _exportToolTip;
-            lnkExport.Text = ExportToExcelText;
-            lnkExport.Click += new EventHandler(lnkExport_Click);
-
-            return lnkExport;
-        }
         #endregion
 
         #region Controls Events
-        /// <summary>
-        /// Exporting all the records by rebinding the gridview and re-setting the page index
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void lnkExport_Click(object sender, EventArgs e)
-        {
-            if (ExcelColumns != null)
-            {
-                foreach (DataControlField field in ExcelColumns)
-                {
-                    this.Columns.Add(field);
-                }
-            }
-
-            this.AllowMultiColumnSorting = false;
-            //this.AllowPaging = false;
-            this.AllowSorting = false;
-            this.ShowFooter = false;
-            this.EnableViewState = false;
-
-            this.PageIndex = 0;
-            this.PageSize = this.RecordsCount;
-            this.DataSourceID = this.DataSourceID;
-            this.DataBind();
-
-            GridViewExcelExporter exp = new GridViewExcelExporter();
-            exp.BeforeFormat += new ExcelFormatEventHandler(exp_BeforeFormat);
-            exp.AfterFormat += new ExcelFormatEventHandler(exp_AfterFormat);
-            exp.Export(_excelExportFileName, this.Page, this);
-        }
-
-        /// <summary>
-        /// Occures after control is formatted
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void exp_AfterFormat(object sender, ExcelFormatEventArgs e)
-        {
-            if (ExcelAfterFormat != null) ExcelAfterFormat(sender, e);
-        }
-
-        /// <summary>
-        /// Occures before control is formatted
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        void exp_BeforeFormat(object sender, ExcelFormatEventArgs e)
-        {
-            if (ExcelBeforeFormat != null) ExcelBeforeFormat(sender, e);
-        }
 
         #region cboPageSize_SelectedIndexChanged
         /// <summary> 
@@ -810,373 +725,5 @@ namespace sz1card1.Common.UI
         }
         #endregion
     }
-
-    #region Excel Export Implementation
-
-    /// <summary>
-    /// Represents the method that will handle the BeforeFormat and AfterFormat events of the Control class
-    /// </summary>
-    /// <param name="sender"></param>
-    /// <param name="e"></param>
-    public delegate void ExcelFormatEventHandler(Object sender, ExcelFormatEventArgs e);
-
-    /// <summary>
-    /// Provides data for the BeforeFormat and AfterFormat events.
-    /// </summary>
-    public class ExcelFormatEventArgs : EventArgs
-    {
-        private Control control;
-
-        private bool cancel;
-
-        private bool formatted;
-
-        private string columnName;
-
-        /// <summary>
-        /// Ctro
-        /// </summary>
-        /// <param name="control"></param>
-        /// <param name="cancel"></param>
-        /// <param name="formatted"></param>
-        /// <param name="columnName"></param>
-        public ExcelFormatEventArgs(Control control, bool cancel, bool formatted, string columnName)
-        {
-            this.control = control;
-            this.cancel = cancel;
-            this.columnName = columnName;
-            this.formatted = formatted;
-        }
-
-        /// <summary>
-        /// Ctor
-        /// </summary>
-        public ExcelFormatEventArgs() { }
-
-        /// <summary>
-        /// The display control
-        /// </summary>
-        public Control Control
-        {
-            get
-            {
-                return control;
-            }
-            set
-            {
-                control = value;
-            }
-        }
-
-        /// <summary>
-        /// Cancel
-        /// </summary>
-        public bool Cancel
-        {
-            get
-            {
-                return cancel;
-            }
-            set
-            {
-                cancel = value;
-            }
-        }
-
-        /// <summary>
-        /// Formatted
-        /// </summary>
-        public bool Formatted
-        {
-            get
-            {
-                return formatted;
-            }
-            set
-            {
-                formatted = value;
-            }
-        }
-
-        /// <summary>
-        /// The ColumnName of the control
-        /// </summary>
-        public string ColumnName
-        {
-            get
-            {
-                return columnName;
-            }
-            set
-            {
-                columnName = value;
-            }
-        }
-    }
-
-    /// <summary>
-    /// Exports a gridview to a excel file. 
-    /// </summary>
-    /// <requirements>Microsoft Excel 97 or above should be installed on the client machine in order to make 
-    /// this function work
-    /// </requirements>
-    public class GridViewExcelExporter
-    {
-        /// <summary>
-        /// Event to indicate that a property has changed.
-        /// </summary>
-        public event ExcelFormatEventHandler BeforeFormat;
-
-        /// <summary>
-        /// Event to indicate that a property has changed.
-        /// </summary>
-        public event ExcelFormatEventHandler AfterFormat;
-
-        /// <summary>
-        /// Called when a control is in the scope to be formated
-        /// </summary>
-        /// <param name="e">The ExcelFormatEventArgs instance containing the event data.</param>
-        protected virtual void OnBeforeFormat(ExcelFormatEventArgs e)
-        {
-            if (null != BeforeFormat)
-            {
-                BeforeFormat(this, e);
-            }
-        }
-
-        /// <summary>
-        /// Called when a control is in the scope to be formated
-        /// </summary>
-        /// <param name="e">The ExcelFormatEventArgs instance containing the event data.</param>
-        protected virtual void OnAfterFormat(ExcelFormatEventArgs e)
-        {
-            if (null != AfterFormat)
-            {
-                AfterFormat(this, e);
-            }
-        }
-
-        /// <summary>
-        /// Ctor of the GridViewExcelExporter class
-        /// </summary>
-        public GridViewExcelExporter()
-        {
-        }
-
-
-        /// <summary>
-        /// Exports the datagrid to an Excel file with the name of the datasheet provided by the passed in parameter
-        /// </summary>
-        public virtual void Export(string reportName, Page currentPage, Control gridView)
-        {
-            System.Web.UI.HtmlControls.HtmlForm htmlForm = new System.Web.UI.HtmlControls.HtmlForm();
-            currentPage.Controls.Add(htmlForm);
-            htmlForm.Controls.Add(gridView);
-
-            Workbook workbook = new Workbook();
-            WorkSheet workSheet = new WorkSheet("导出");
-
-            for (int i = 0; i < ((GridView)gridView).Columns.Count; i++)
-            {
-                string colname = ((GridView)gridView).Columns[i].HeaderText.ToString();
-                if (!string.IsNullOrEmpty(colname) && colname != "操作" && colname != "使用情况" && colname != "导出" && colname.IndexOf("彩信") < 0)
-                {
-                    workSheet.AddColumn(colname);
-                }
-            }
-            foreach (GridViewRow row in ((GridView)gridView).Rows)
-            {
-                object[] obj = new object[100];
-                for (int i = 0, j = 0; i < ((GridView)gridView).Columns.Count; i++)
-                {
-                    string colname = ((GridView)gridView).Columns[i].HeaderText.ToString();
-                    if (!string.IsNullOrEmpty(colname) && colname != "操作" && colname != "使用情况" && colname != "导出" && colname.IndexOf("彩信") < 0)
-                    {
-                        StringBuilder text = new StringBuilder();
-                        if (row.Cells[i].HasControls())//使用模板列时
-                        {
-                            foreach (var item in row.Cells[i].Controls)
-                            {
-                                if (item is System.Web.UI.HtmlControls.HtmlAnchor)
-                                    text.Append(((System.Web.UI.HtmlControls.HtmlAnchor)item).InnerHtml);
-                                else if (item is Label)
-                                    text.Append(((Label)item).Text);
-                            }
-                            obj[j] = text.ToString();
-                            //obj[j] = ((Label)row.Cells[i].FindControl(colname)) == null ? "" : ((Label)row.Cells[i].FindControl(colname)).Text;
-                        }
-                        else
-                        {
-                            obj[j] = ClearHtml(row.Cells[i].Text.ToString());
-                        }
-                        j++;
-                    }
-                }
-                workSheet.WriteRows(obj);
-            }
-            workbook.AddWorkSheet(workSheet);
-
-            ClearChildControls((GridView)gridView);
-
-            currentPage.Response.Clear();
-            currentPage.Response.Buffer = true;
-
-            currentPage.Response.AddHeader("Content-Disposition", "attachment; filename=" + System.Web.HttpUtility.UrlEncode(reportName, System.Text.Encoding.UTF8));
-            currentPage.Response.ContentType = "application/vnd.ms-excel";
-            currentPage.Response.ContentEncoding = System.Text.Encoding.UTF7;
-            currentPage.Response.Charset = "GB2312";
-            currentPage.EnableViewState = false;
-
-            using (StringWriter stringWriter = new StringWriter())
-            {
-                //HtmlTextWriter htmlWriter = new HtmlTextWriter(stringWriter);
-                //htmlForm.RenderControl(htmlWriter);
-                //htmlWriter.Flush();
-
-                Byte[] bt = workbook.GetBytes();
-                currentPage.Response.OutputStream.Write(bt, 0, bt.Length);
-                currentPage.Response.End();
-            }
-        }
-
-        /// <summary>
-        /// 过滤所有html标签
-        /// </summary>
-        /// <param name="Htmlstring">过滤的内容</param>
-        /// <returns></returns>
-        protected string ClearHtml(string Htmlstring)
-        {
-            Htmlstring = Regex.Replace(Htmlstring, @"([\r\n])[\s]+", "", RegexOptions.IgnoreCase);
-            Htmlstring = Regex.Replace(Htmlstring, @"-->", "", RegexOptions.IgnoreCase);
-            Htmlstring = Regex.Replace(Htmlstring, @"<!--.*", "", RegexOptions.IgnoreCase);
-            Htmlstring = Regex.Replace(Htmlstring, @"&(quot|#34);", "\"", RegexOptions.IgnoreCase);
-            Htmlstring = Regex.Replace(Htmlstring, @"&(amp|#38);", "&", RegexOptions.IgnoreCase);
-            Htmlstring = Regex.Replace(Htmlstring, @"&(lt|#60);", "<", RegexOptions.IgnoreCase);
-            Htmlstring = Regex.Replace(Htmlstring, @"&(gt|#62);", ">", RegexOptions.IgnoreCase);
-            Htmlstring = Regex.Replace(Htmlstring, @"&(nbsp|#160);", "", RegexOptions.IgnoreCase);
-            Htmlstring = Regex.Replace(Htmlstring, @"&(iexcl|#161);", "\xa1", RegexOptions.IgnoreCase);
-            Htmlstring = Regex.Replace(Htmlstring, @"&(cent|#162);", "\xa2", RegexOptions.IgnoreCase);
-            Htmlstring = Regex.Replace(Htmlstring, @"&(pound|#163);", "\xa3", RegexOptions.IgnoreCase);
-            Htmlstring = Regex.Replace(Htmlstring, @"&(copy|#169);", "\xa9", RegexOptions.IgnoreCase);
-            Htmlstring = Regex.Replace(Htmlstring, @"&#(\d+);", "", RegexOptions.IgnoreCase);
-            Htmlstring = Regex.Replace(Htmlstring, @"<(.[^>]*)>", "", RegexOptions.IgnoreCase);
-            Htmlstring = Htmlstring.Replace("<", "");
-            Htmlstring = Htmlstring.Replace(">", "");
-            Htmlstring = Htmlstring.Replace("\r\n", "");
-            Htmlstring = HttpContext.Current.Server.HtmlEncode(Htmlstring).Trim();
-
-            return Htmlstring;
-        }
-
-
-        /// <summary>
-        /// Iterates a control and its children controls, ensuring they are all LiteralControls
-        /// <remarks>
-        /// Only LiteralControl can call RenderControl(System.Web.UI.HTMLTextWriter htmlWriter) method. Otherwise 
-        /// a runtime error will occur. This is the reason why this method exists.
-        /// </remarks>
-        /// </summary>
-        /// <param name="control">The control to be cleared and verified</param>
-        private void RecursiveClear(Control control)
-        {
-
-            //Clears children controls
-            for (int i = control.Controls.Count - 1; i >= 0; i--)
-            {
-                RecursiveClear(control.Controls[i]);
-            }
-
-            string columnName = string.Empty;
-            Object controlTemp = (object)control;
-
-            if (control.Parent is DataControlFieldCell)
-            {
-                columnName = ((DataControlFieldCell)control.Parent).ContainingField.HeaderText;
-            }
-            ExcelFormatEventArgs args = new ExcelFormatEventArgs();
-            args.ColumnName = columnName;
-            args.Control = control;
-
-            if (args.Cancel) return;
-
-            OnBeforeFormat(args);
-
-            if (control is Repeater)
-            {
-                control.Parent.Controls.Remove(control);
-            }
-            //If it is a LinkButton, convert it to a LiteralControl
-            else if (control is LinkButton)
-            {
-                LiteralControl literal = new LiteralControl();
-                control.Parent.Controls.Add(literal);
-                literal.Text = ((LinkButton)control).Text;
-                control.Parent.Controls.Remove(control);
-            }
-            //We don't need a button in the excel sheet, so simply delete it
-            else if (control is Button)
-            {
-                control.Parent.Controls.Remove(control);
-            }
-            // Replace image with 'o' char
-            else if (control is Image)
-            {
-                if (((Image)control).Visible)
-                {
-                    control.Parent.Controls.Add(new LiteralControl("<span style='font-size:8px;'>o</span>"));
-                }
-                control.Parent.Controls.Remove(control);
-            }
-            //If it is a ListControl, copy the text to a new LiteralControl
-            else if (control is ListControl)
-            {
-                LiteralControl literal = new LiteralControl();
-                control.Parent.Controls.Add(literal);
-                try
-                {
-                    literal.Text = ((ListControl)control).SelectedItem.Text;
-                }
-                catch
-                {
-                }
-                control.Parent.Controls.Remove(control);
-            }
-            //If it is a Hyperlink, convert it to a LiteralControl
-            else if (control is HyperLink)
-            {
-                LiteralControl literal = new LiteralControl();
-                control.Parent.Controls.Add(literal);
-                literal.Text = ((HyperLink)control).Text;
-                control.Parent.Controls.Remove(control);
-            }
-            //You may add more conditions when necessary
-
-            Object controlTemp1 = (object)control;
-            args.Formatted = controlTemp.Equals(controlTemp1);
-            OnAfterFormat(args);
-            return;
-        }
-
-        /// <summary>
-        /// Clears the child controls of a EntityGridView to make sure all controls are LiteralControls
-        /// </summary>
-        /// <param name="gridView">Datagrid to be cleared and verified</param>
-        protected void ClearChildControls(System.Web.UI.WebControls.GridView gridView)
-        {
-
-            for (int i = gridView.Columns.Count - 1; i >= 0; i--)
-            {
-                if (gridView.Columns[i].GetType().Name == "ButtonColumn"
-                    || gridView.Columns[i].GetType().Name == "CheckBoxField"
-                    || gridView.Columns[i].GetType().Name == "CommandField")
-                {
-                    gridView.Columns[i].Visible = false;
-                }
-            }
-
-            this.RecursiveClear(gridView);
-        }
-    }
-
-    #endregion
+    
 }

@@ -1,17 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.ComponentModel;
-using System.ComponentModel.Design;
-using System.Collections.Specialized;
-using System.Security.Permissions;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.Design;
-using System.Web.UI.WebControls;
-using System.Drawing.Design;
 
-namespace sz1card1.Common.UI
+namespace WebUserControl.UI
 {
     /// <summary>
     /// 选项卡

@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Web.UI;
-using System.Web.UI.WebControls;
-using sz1card1.Common.Delegate;
+using WebUserControl.Delegate;
 
-namespace sz1card1.Common.UI
+namespace WebUserControl.UI
 {
     /// <summary>
     /// Renders an image button which posts back to its parent form.
