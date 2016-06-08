@@ -103,9 +103,9 @@
             </webUserControl:ToolbarButton>
         </webUserControl:Toolbar>
         <webUserControl:EntityGridView ID="gvUserList" runat="server" AllowChangePagesize="True"
-            AllowExportToExcel="True" AllowMultiColumnSorting="False" DefaultSortDirection="Ascending"
-            ExcelExportFileName="表格.xls" PageSelectorPageSizeInterval="10" PageSize="20"
-            AllowSorting="True" AutoGenerateColumns="False" RowMouseOverColor=""
+             AllowMultiColumnSorting="False" DefaultSortDirection="Ascending" AllowCustomPaging="true"
+            PageSelectorPageSizeInterval="10" PageSize="20" PagerButtons="NumericFirstLast"
+            AllowSorting="True" AutoGenerateColumns="False" OnPageIndexChang="gvUserList_PageIndexChanging"
             OnRowDataBound="gvUserList_RowDataBound">
             <Columns>
                 <asp:TemplateField>
@@ -140,8 +140,6 @@
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
-            <ExcelColumns>
-            </ExcelColumns>
             <EmptyDataTemplate>
                 当前没有任何数据
             </EmptyDataTemplate>

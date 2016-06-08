@@ -7,404 +7,200 @@ using WebUserControl.Enum;
 
 namespace WebUserControl.UI
 {
-    [Serializable]
-    public class PageArgs : EventArgs
+    public class DataPager : TableCell
     {
-        public PageArgs()
+        public const string FIRST_PAGE = "First1";
+        public const string PREV_PAGE = "Prev1";
+        public const string NEXT_PAGE = "Next1";
+        public const string LAST_PAGE = "Last1";
+        public const string PAGE_ARGUMENT = "Page1";
+        public const char ARGUMENT_SPLITTER = '$';
+        private int _pageIndex;
+        private int _recordCount;
+        private int _pageSize;
+        private int _pageCount;
+        private PagerSettings _settings;
+        TextBox txtbox = new TextBox();
+
+        public DataPager(PagerSettings setting, int pageIndex, int recordCount, int pageSize)
         {
+            _settings = setting;
+            _pageIndex = pageIndex;
+            _recordCount = recordCount;
+            _pageSize = pageSize;
+            _pageCount = _recordCount % _pageSize == 0 ? _recordCount / _pageSize : _recordCount / _pageSize + 1;
+            GeneratePage();
         }
 
-        private int pageIndex;
-        public int PageIndex
+        private void GeneratePage()
         {
-            get
+            if (_settings.Mode == PagerButtons.NextPrevious || _settings.Mode == PagerButtons.NextPreviousFirstLast)
             {
-                return pageIndex;
+                GeneratePrevNextPage();
             }
-            set
+            else if (_settings.Mode == PagerButtons.Numeric || _settings.Mode == PagerButtons.NumericFirstLast)
             {
-                pageIndex = value;
-            }
-        }
-    }
-
-    [DefaultProperty("PageSize")]
-    [ToolboxData("<{0}:DataPager runat=\"server\" />")]
-    public class DataPager : WebControl, IPostBackEventHandler
-    {
-        private string pagedControlID = string.Empty;
-        private PageMode pageMode = PageMode.QueryString;
-        private PageStyle pageStyle = PageStyle.Classic;
-        private string queryString = "page";
-        public event EventHandler<PageArgs> PageChanged;
-
-        private int totalCount = 0;
-        private int pageIndex = 0;
-        private int pageSize = 10;
-        private bool isDataBind = false;
-
-        public DataPager()
-        {
-        }
-
-        protected override void OnInit(EventArgs e)
-        {
-            base.OnInit(e);
-            if (!DesignMode)
-            {
-                if (HttpContext.Current.Request.QueryString[QueryString] != null)
-                {
-                    PageIndex = int.Parse(HttpContext.Current.Request.QueryString[QueryString]) - 1;
-                }
+                GenerateNumericPage();
             }
         }
 
-        [
-        Browsable(true),
-        Description("设置/获取此DataPager应分页的控件ID"),
-        Category("Misc")
-        ]
-        public string PagedControlID
+        private void GeneratePrevNextPage()
         {
-            get
-            {
-                return pagedControlID;
-            }
-            set
-            {
-                pagedControlID = value;
-            }
+            GeneratePage(false);
+        }
+        private void GenerateNumericPage()
+        {
+            GeneratePage(true);
         }
 
-        [
-        Browsable(true),
-        Description("设置/获取分页控件模式"),
-        DefaultValue(PageMode.QueryString),
-        Category("Misc")
-        ]
-        public PageMode PageMode
+        private void GeneratePage(bool generateNumber)
         {
-            get
+            this.Controls.Add(new LiteralControl("&nbsp;&nbsp;"));
+            if (_recordCount > 0)
             {
-                return pageMode;
+                this.Controls.Add(new LiteralControl("总条数：&nbsp;"));
+                this.Controls.Add(new LiteralControl(_recordCount.ToString()));
+                this.Controls.Add(new LiteralControl("&nbsp;&nbsp;每页条数：&nbsp;&nbsp;"));
+                this.Controls.Add(new LiteralControl(_pageSize.ToString()));
+                this.Controls.Add(new LiteralControl("&nbsp;当前页：&nbsp;&nbsp;"));
             }
-            set
+            this.Controls.Add(new LiteralControl((_pageIndex + 1).ToString()));
+            this.Controls.Add(new LiteralControl("/"));
+            this.Controls.Add(new LiteralControl(_pageCount.ToString()));
+            this.Controls.Add(new LiteralControl("&nbsp;&nbsp;&nbsp;&nbsp;"));
+            LinkButton btnFrist = new LinkButton();
+            LinkButton btnPrev = new LinkButton();
+            LinkButton btnNext = new LinkButton();
+            LinkButton btnLast = new LinkButton();
+            if (!String.IsNullOrEmpty(_settings.FirstPageImageUrl))
             {
-                pageMode = value;
-            }
-        }
-
-        [
-        Browsable(true),
-        Description("设置/获取分页控件样式"),
-        DefaultValue(PageStyle.Classic),
-        Category("Misc")
-        ]
-        public PageStyle PageStyle
-        {
-            get
-            {
-                return pageStyle;
-            }
-            set
-            {
-                pageStyle = value;
-            }
-        }
-
-        [
-        Browsable(true),
-        Description("设置/获取查询字符串名"),
-        DefaultValue("page"),
-        Category("Misc")
-        ]
-        public string QueryString
-        {
-            get
-            {
-                return queryString;
-            }
-            set
-            {
-                queryString = value;
-            }
-        }
-
-        [
-        Browsable(true),
-        Description("设置/获取总记录条数"),
-        Category("Misc"),
-        DefaultValue("0")
-        ]
-        public int TotalCount
-        {
-            get
-            {
-                return totalCount;
-            }
-            set
-            {
-                totalCount = value;
-            }
-        }
-
-        [
-        Browsable(true),
-        Description("设置/获取当前页码"),
-        Category("Misc"),
-        DefaultValue("0")
-        ]
-        public int PageIndex
-        {
-            get
-            {
-                return pageIndex;
-            }
-            set
-            {
-                pageIndex = value;
-            }
-        }
-
-        [
-        Browsable(true),
-        Description("设置/获取每页条数"),
-        Category("Misc"),
-        DefaultValue("10")
-        ]
-        public int PageSize
-        {
-            get
-            {
-                return pageSize;
-            }
-            set
-            {
-                pageSize = value;
-            }
-        }
-
-        public virtual void OnPageChanged(Object sender, PageArgs e)
-        {
-            if (PageChanged != null)
-                PageChanged(sender, e);
-        }
-
-        public void RaisePostBackEvent(string eventArgument)
-        {
-            if (!string.IsNullOrEmpty(HttpContext.Current.Request.Form[this.UniqueID]))
-            {
-                PageIndex = Int32.Parse(HttpContext.Current.Request.Form[this.UniqueID].ToString()) - 1;
-                DataBind();
-            }
-        }
-
-        protected override HtmlTextWriterTag TagKey
-        {
-            get
-            {
-                return HtmlTextWriterTag.Div;
-            }
-        }
-
-        protected override void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
-            if (!Page.IsPostBack)
-            {
-                DataBind();
-            }
-        }
-
-        public override void DataBind()
-        {
-            base.DataBind();
-            if (!isDataBind)
-            {
-                PageArgs args = new PageArgs();
-                args.PageIndex = pageIndex;
-                OnPageChanged(this, args);
-                isDataBind = true;
-            }
-        }
-
-        protected override void OnPreRender(EventArgs e)
-        {
-            base.OnPreRender(e);
-            if (pageMode == PageMode.Postback)
-            {
-                string dopost = "<div>\n";
-                dopost += "   <input type=\"hidden\" name=\"" + this.UniqueID + "\" id=\"__EVENTTARGET\" value=\"\" />\n";
-                dopost += "</div>\n";
-                dopost += "<script type=text/javascript>\n";
-                dopost += "      function _doPost(page){\n";
-                dopost += "          document.forms['" + this.Page.Form.UniqueID + "']." + this.UniqueID + ".value = page;\n";
-                dopost += "          document.forms['" + this.Page.Form.UniqueID + "'].submit();\n";
-                dopost += "      }\n";
-                dopost += "</script>\n";
-                if (!Page.ClientScript.IsClientScriptIncludeRegistered(this.GetType(), "_doPost"))
-                {
-                    Page.ClientScript.RegisterClientScriptBlock(this.GetType(), "_doPost", dopost);
-                }
-            }
-        }
-
-        private string GetLinkScript()
-        {
-            string result = "";
-            switch (pageMode)
-            {
-                case PageMode.QueryString:
-                    result = "{0}={1}";
-                    break;
-                case PageMode.Postback:
-                    result = "javascript:_doPost('{1}');";
-                    break;
-                default:
-                    break;
-            }
-            return result;
-        }
-
-        private string GetSelectScript()
-        {
-            string result = "";
-            switch (pageMode)
-            {
-                case PageMode.QueryString:
-                    result = "window.location.href='{0}'+this.value;";
-                    break;
-                case PageMode.Postback:
-                    result = "_doPost(this.value);";
-                    break;
-                default:
-                    break;
-            }
-            return result;
-        }
-
-        protected override void RenderContents(HtmlTextWriter writer)
-        {
-
-            string url = DesignMode ? "a.aspx" : Page.Request.RawUrl;
-            if (url.IndexOf("?") > 0)
-            {
-                int index = url.IndexOf(QueryString + "=");
-                if (index > 0)
-                {
-                    url = url.Substring(0, index);
-                    url += QueryString;
-                }
-                else
-                {
-                    url += "&" + QueryString;
-                }
+                btnFrist.Text = "<img src='" + ResolveUrl(_settings.FirstPageImageUrl) + "' border='0'/>";
             }
             else
             {
-                url += "?" + QueryString;
+                btnFrist.Text = _settings.FirstPageText;
             }
-            int lastIndex = (TotalCount % PageSize == 0 ? TotalCount / PageSize - 1 : TotalCount / PageSize);
-            //呈现第一页
-            if (PageIndex == 0)
+            btnFrist.CommandName = PAGE_ARGUMENT;
+            btnFrist.CommandArgument = FIRST_PAGE;
+            btnFrist.Font.Underline = false;
+            if (!String.IsNullOrEmpty(_settings.PreviousPageImageUrl))
             {
-                switch (PageStyle)
-                {
-                    case PageStyle.Classic:
-                        writer.Write("<span class='disabled'> < </span>");
-                        break;
-                    case PageStyle.Standard:
-                        writer.Write("<span class='disabled'> 首页 </span>");
-                        writer.Write("<span class='disabled'>上一页</span>");
-                        break;
-                }
+                btnPrev.Text = "<img src='" + ResolveUrl(_settings.PreviousPageImageUrl) + "' border='0'/>";
             }
             else
             {
-                switch (PageStyle)
-                {
-                    case PageStyle.Classic:
-                        writer.Write("<a href=\"" + string.Format(GetLinkScript(), url, PageIndex) + "\"> < </a>");
-                        break;
-                    case PageStyle.Standard:
-                        writer.Write("<a href=\"" + string.Format(GetLinkScript(), url, 1) + "\"> 首页 </a>");
-                        writer.Write("<a href=\"" + string.Format(GetLinkScript(), url, PageIndex) + "\">上一页</a>");
-                        break;
-                }
+                btnPrev.Text = _settings.PreviousPageText;
             }
-            if (PageStyle == PageStyle.Classic)
+            btnPrev.CommandName = PAGE_ARGUMENT;
+            btnPrev.CommandArgument = PREV_PAGE;
+            btnPrev.Font.Underline = false;
+            if (!String.IsNullOrEmpty(_settings.NextPageImageUrl))
             {
-                //呈现数字页
-                int start;
-                if (PageIndex < 5)
+                btnNext.Text = "<img src='" + ResolveUrl(_settings.NextPageImageUrl) + "' border='0'/>";
+            }
+            else
+            {
+                btnNext.Text = _settings.NextPageText;
+            }
+            btnNext.CommandName = PAGE_ARGUMENT;
+            btnNext.CommandArgument = NEXT_PAGE;
+            btnNext.Font.Underline = false;
+            if (!String.IsNullOrEmpty(_settings.LastPageImageUrl))
+            {
+                btnLast.Text = "<img src='" + ResolveUrl(_settings.LastPageImageUrl) + "' border='0'/>";
+            }
+            else
+            {
+                btnLast.Text = _settings.LastPageText;
+            }
+            btnLast.CommandName = PAGE_ARGUMENT;
+            btnLast.CommandArgument = LAST_PAGE;
+            btnLast.Font.Underline = false;
+            if (this._pageIndex <= 0)
+            {
+                btnFrist.Enabled = btnPrev.Enabled = false;
+                btnFrist.ForeColor = System.Drawing.Color.Gray;
+                btnPrev.ForeColor = System.Drawing.Color.Gray;
+            }
+            else
+            {
+                btnFrist.Enabled = btnPrev.Enabled = true;
+            }
+            this.Controls.Add(btnFrist);
+            this.Controls.Add(new LiteralControl("&nbsp;&nbsp;"));
+            this.Controls.Add(btnPrev);
+            this.Controls.Add(new LiteralControl("&nbsp;&nbsp;"));
+            if (generateNumber)
+            {
+                int rightCount = (int)(_settings.PageButtonCount / 2);
+                int leftCount = _settings.PageButtonCount % 2 == 0 ? rightCount - 1 : rightCount;
+                for (int i = 0; i < _pageCount; i++)
                 {
-                    start = 0;
-                }
-                else if (PageIndex > TotalCount / PageSize - 5)
-                {
-                    start = TotalCount / PageSize - 8 >= 0 ? TotalCount / PageSize - 8 : 0;
-                }
-                else
-                {
-                    start = PageIndex - 4;
-                }
-                for (int i = start; i < start + 9 && i <= lastIndex; i++)
-                {
-                    if (i == PageIndex)
+                    if (_pageCount > _settings.PageButtonCount)
                     {
-                        writer.Write(string.Format("<span class='current'>{0}</span>", i + 1));
+                        if (i < _pageIndex - leftCount && _pageCount - 1 - i > _settings.PageButtonCount - 1)
+                        {
+                            continue;
+                        }
+                        else if (i > _pageIndex + rightCount && i > _settings.PageButtonCount - 1)
+                        {
+                            continue;
+                        }
+                    }
+                    if (i == _pageIndex)
+                    {
+                        this.Controls.Add(new LiteralControl("<span style='color:red;font-weight:bold'>" + (i + 1).ToString() + "</span>"));
                     }
                     else
                     {
-                        writer.Write("<a href=\"" + string.Format(GetLinkScript(), url, i + 1) + "\"> " + (i + 1).ToString() + " </a>");
+                        LinkButton lb = new LinkButton();
+                        lb.Text = (i + 1).ToString();
+                        lb.CommandName = PAGE_ARGUMENT;
+                        lb.CommandArgument = (i + 1).ToString();
+                        this.Controls.Add(lb);
                     }
+                    this.Controls.Add(new LiteralControl("&nbsp;&nbsp;"));
                 }
             }
-            //呈现最后一页
-            if (PageIndex == lastIndex)
+            if (this._pageIndex >= _pageCount - 1)
             {
-                switch (PageStyle)
-                {
-                    case PageStyle.Classic:
-                        writer.Write("<span class='disabled'> > </span>");
-                        break;
-                    case PageStyle.Standard:
-                        writer.Write("<span class='disabled'>下一页</span>");
-                        writer.Write("<span class='disabled'> 末页 </span>");
-                        break;
-                }
-
+                btnNext.Enabled = btnLast.Enabled = false;
+                btnNext.ForeColor = System.Drawing.Color.Gray;
+                btnLast.ForeColor = System.Drawing.Color.Gray;
             }
             else
             {
-                switch (PageStyle)
-                {
-                    case PageStyle.Classic:
-                        writer.Write("<a href=\"" + string.Format(GetLinkScript(), url, PageIndex + 2) + "\"> > </a>");
-                        break;
-                    case PageStyle.Standard:
-                        writer.Write("<a href=\"" + string.Format(GetLinkScript(), url, PageIndex + 2) + "\">下一页</a>");
-                        writer.Write("<a href=\"" + string.Format(GetLinkScript(), url, lastIndex + 1) + "\"> 末页 </a>");
-                        break;
-                }
+                btnNext.Enabled = btnLast.Enabled = true;
             }
-            if (PageStyle == PageStyle.Standard)
+            this.Controls.Add(btnNext);
+            this.Controls.Add(new LiteralControl("&nbsp;&nbsp;"));
+            this.Controls.Add(btnLast);
+            this.Controls.Add(new LiteralControl("&nbsp;&nbsp;"));
+            txtbox.Width = 40;
+            this.Controls.Add(txtbox);
+            this.Controls.Add(new LiteralControl("&nbsp;&nbsp;"));
+            LinkButton go = new LinkButton();
+            go.Text = "转到";
+
+            go.Click += go_Click;
+            this.Controls.Add(go);
+        }
+
+        void go_Click(object sender, EventArgs e)
+        {
+            LinkButton link = sender as LinkButton;            
+            int currentPage;
+            if (int.TryParse(txtbox.Text,out currentPage))
             {
-                string onchange = string.Format(GetSelectScript(), url);
-                writer.Write(string.Format("&nbsp;页数：<select name='{0}_select' onchange={1}>", UniqueID, onchange));
-                for (int i = 0; i <= lastIndex; i++)
-                {
-                    if (i == PageIndex)
-                    {
-                        writer.Write(string.Format("<option value='{0}' selected='true'>{0}/{1}</option>", i + 1, lastIndex + 1));
-                    }
-                    else
-                    {
-                        writer.Write(string.Format("<option value='{0}'>{0}/{1}</option>", i + 1, lastIndex + 1));
-                    }
-                }
-                writer.Write("</select>");
+                if (currentPage > _pageCount)
+                    currentPage = _pageCount;
+                if (currentPage < 0)
+                    currentPage = 1;
+                link.CommandName = PAGE_ARGUMENT;
+                link.CommandArgument = currentPage.ToString();
             }
+
+            
         }
     }
 }

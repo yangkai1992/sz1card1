@@ -19,17 +19,13 @@ namespace WebUserControl.UI
     public class EntityGridView : GridView
     {
         #region class member variables
-        private string _excelExportFileName = "表格.xls";
         private string _defaultSortColumnName = string.Empty;
         private SortDirection _defaultSortDirection = SortDirection.Ascending;
-        private string _exportToExcelText = string.Empty;
-        private string _exportToolTip = "导出到Excel表格";
-        private bool _allowExportToExcel = true;
         private int _pageSelectorPageSizeInterval = 10;
-        private bool _allowChangePageSize = true;
         private System.Drawing.Color rowMouseOverColor;
-        private TableRow _gridPagerRow = null;
         private string _statisticsText = "";
+        private PagerButtons _pagerButtons;
+        private TextBox txtbox = new TextBox();
         #endregion
 
         /// <summary>
@@ -37,53 +33,9 @@ namespace WebUserControl.UI
         /// </summary>
         public event EventHandler PageSizeChanged;
 
+        public event GridViewPageEventHandler PageIndexChang; 
 
         #region Properties
-        /// <summary>
-        /// Collection of data control fields where each data control field represents
-        /// a table column to be displayed when Excel report is generated
-        /// </summary>
-        [DefaultValueAttribute("")]
-        [MergablePropertyAttribute(false)]
-        [PersistenceModeAttribute(PersistenceMode.InnerProperty)]
-        public virtual DataControlFieldCollection ExcelColumns
-        {
-            get
-            {
-                if (ViewState["_dataControlFieldCollection"] != null)
-                    return (DataControlFieldCollection)ViewState["_dataControlFieldCollection"];
-                return null;
-            }
-            set { ViewState["_dataControlFieldCollection"] = value; }
-        }
-
-        /// <summary>
-        /// Set / Gets the Export File Name
-        /// </summary>
-        [
-        Description("Set / Gets the Export File Name"),
-        Category("Misc"),
-        DefaultValue("Export.xls"),
-        ]
-        public string ExcelExportFileName
-        {
-            get { return _excelExportFileName; }
-            set { _excelExportFileName = value; }
-        }
-
-        /// <summary>
-        /// Set / Gets the ToolTip
-        /// </summary>
-        [
-        Description("et / Gets the ToolTip"),
-        Category("Misc"),
-        DefaultValue("导出到Excel表格"),
-        ]
-        public string ExportToolTip
-        {
-            get { return _exportToolTip; }
-            set { _exportToolTip = value; }
-        }
 
         /// <summary>
         /// Gets / Sets Page Selector PageSize Interval
@@ -97,30 +49,6 @@ namespace WebUserControl.UI
         {
             get { return _pageSelectorPageSizeInterval; }
             set { _pageSelectorPageSizeInterval = value; }
-        }
-
-        /// <summary>
-        /// Get / Sest the Export to excel text
-        /// </summary>
-        [
-        Description("Gets / Sets the Export to Excel Text"),
-        Category("Misc"),
-        DefaultValue(""),
-        ]
-        public string ExportToExcelText
-        {
-            get
-            {
-                if (_exportToExcelText == string.Empty)
-                {
-                    _exportToExcelText = string.Format("<img src='{0} border='0'/>", Page.ClientScript.GetWebResourceUrl(this.GetType(), "WebUserControl.UI.Resources.excel.gif"));
-                }
-                return _exportToExcelText;
-            }
-            set
-            {
-                _exportToExcelText = value;
-            }
         }
 
         /// <summary>
@@ -143,33 +71,7 @@ namespace WebUserControl.UI
             }
         }
 
-        /// <summary>
-        /// Enable/Disable ExportToExcel
-        /// </summary>
-        [
-        Description("Whether Exporting Or Not to Excel file"),
-        Category("Behavior"),
-        DefaultValue("true"),
-        ]
-        public bool AllowExportToExcel
-        {
-            get { return _allowExportToExcel; }
-            set { _allowExportToExcel = value; }
-        }
-
-        /// <summary>
-        /// 是否允许改变每页条数
-        /// </summary>
-        [
-        Description("是否允许改变每页条数"),
-        Category("Behavior"),
-        DefaultValue("true"),
-        ]
-        public bool AllowChangePagesize
-        {
-            get { return _allowChangePageSize; }
-            set { _allowChangePageSize = value; }
-        }
+        
 
         /// <summary>
         /// Sets / Gets Default Sort Column Name
@@ -204,6 +106,16 @@ namespace WebUserControl.UI
         }
 
         /// <summary>
+        /// 分页控件模式
+        /// </summary>
+        [DefaultValue(PagerButtons.NextPreviousFirstLast)]
+        public PagerButtons PagerButtons
+        {
+            get { return _pagerButtons; }
+            set { _pagerButtons = value; }
+        }
+
+        /// <summary>
         /// Enable/Disable MultiColumn Sorting.
         /// </summary>
         [
@@ -226,23 +138,46 @@ namespace WebUserControl.UI
         }
 
         /// <summary>
-        /// Gets/Sets Show Page Text
+        /// 总共多少条记录
         /// </summary>
-        [
-        Description("Gets / Sets Show Page Text"),
-        Category("Misc"),
-        DefaultValue("页码"),
-        ]
-        public string ShowPageText
+        public int RecordCount
         {
             get
             {
-                object o = ViewState["ShowPageText"];
-                return (o != null ? (string)o : "页码");
+                object o = ViewState["RecordCount"];
+                return o == null ? 0 : Convert.ToInt32(o);
             }
             set
             {
-                ViewState["ShowPageText"] = value;
+                ViewState["RecordCount"] = value;
+            }
+        }
+
+        /// <summary>
+        /// 页面索引
+        /// </summary>
+        public override int PageIndex
+        {
+            get
+            {
+                object o = ViewState["PageIndex"];
+                return o == null ? 0 : Convert.ToInt32(o);
+            }
+            set
+            {
+                ViewState["PageIndex"] = value;
+            }
+        }
+
+        /// <summary>
+        /// 总页数
+        /// </summary>
+        public override int PageCount
+        {
+            get
+            {
+                int pageCount = RecordCount % PageSize == 0 ? RecordCount / PageSize : RecordCount / PageSize + 1;
+                return pageCount;
             }
         }
 
@@ -259,48 +194,6 @@ namespace WebUserControl.UI
             set
             {
                 rowMouseOverColor = value;
-            }
-        }
-
-        /// <summary>
-        /// Gest/Sets Total Records
-        /// </summary>
-        [
-        Description("Gets / Sets Total Records Text"),
-        Category("Misc"),
-        DefaultValue("总记录条数"),
-        ]
-        public string TotalRecordsText
-        {
-            get
-            {
-                object o = ViewState["TotalRecordsText"];
-                return (o != null ? (string)o : "总记录条数");
-            }
-            set
-            {
-                ViewState["TotalRecordsText"] = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets/Sets Records Per Page
-        /// </summary>
-        [
-        Description("Gets / Sets Records Per Page Text"),
-        Category("Misc"),
-        DefaultValue("每页条数"),
-        ]
-        public string RecordsPerPageText
-        {
-            get
-            {
-                object o = ViewState["RecordsPerPageText"];
-                return (o != null ? (string)o : "每页条数");
-            }
-            set
-            {
-                ViewState["RecordsPerPageText"] = value;
             }
         }
 
@@ -376,10 +269,6 @@ namespace WebUserControl.UI
         {
             base.OnInit(e);
 
-            //if (Page.IsPostBack == false)
-            //{
-            //    this.Sort(DefaultSortColumnName, _defaultSortDirection);
-            //}
             if (!string.IsNullOrEmpty(this.DataSourceID))
             {
                 DataSourceControl dsc = (DataSourceControl)this.Parent.FindControl(string.Format("{0}", this.DataSourceID));
@@ -388,8 +277,7 @@ namespace WebUserControl.UI
                 System.Delegate d = System.Delegate.CreateDelegate(eventInfo.EventHandlerType, this, "dsc_Selected");
 
                 eventInfo.AddEventHandler(dsc, d);
-            }
-
+            }          
         }
 
         /// <summary>
@@ -465,29 +353,202 @@ namespace WebUserControl.UI
             }
             else if (e.Row.RowType == DataControlRowType.Pager)
             {
-                DisplayPageSizeSelector(e.Row);
-                _gridPagerRow = e.Row;
+                e.Row.Controls.Clear();
+                PagerSettings.FirstPageText = "首页";
+                PagerSettings.PreviousPageText = "前一页";
+                PagerSettings.NextPageText = "下一页";
+                PagerSettings.LastPageText = "尾页";
+                PagerSettings.Mode = PagerButtons;
+                TableCell tc = GeneratePage();
+                tc.ColumnSpan = this.Columns.Count;
+                e.Row.Controls.Add(tc);
             }
         }
 
+        #endregion
 
-        /// <summary>
-        /// Occurs after the Control object is loaded but prior to rendering. 
-        /// </summary>
-        /// <param name="e"></param>
-        protected override void OnPreRender(EventArgs e)
+        private TableCell GeneratePage()
         {
-            base.OnPreRender(e);
-
-            if (this.RecordsCount > 0 && this.AllowPaging)
+            bool generateNumber = false;
+            if (PagerSettings.Mode == PagerButtons.Numeric || PagerSettings.Mode == PagerButtons.NumericFirstLast)
             {
-                if (_gridPagerRow != null)
+                generateNumber = true;
+            }
+            TableCell tableCell = new TableCell();
+            tableCell.Controls.Add(new LiteralControl("&nbsp;&nbsp;"));
+            if (RecordCount > 0)
+            {
+                tableCell.Controls.Add(new LiteralControl("总条数：&nbsp;"));
+                tableCell.Controls.Add(new LiteralControl(RecordCount.ToString()));
+                tableCell.Controls.Add(new LiteralControl("&nbsp;&nbsp;每页条数：&nbsp;&nbsp;"));
+                tableCell.Controls.Add(new LiteralControl(PageSize.ToString()));
+                tableCell.Controls.Add(new LiteralControl("&nbsp;当前页：&nbsp;&nbsp;"));
+            }
+            tableCell.Controls.Add(new LiteralControl((PageIndex + 1).ToString()));
+            tableCell.Controls.Add(new LiteralControl("/"));
+            tableCell.Controls.Add(new LiteralControl(PageCount.ToString()));
+            tableCell.Controls.Add(new LiteralControl("&nbsp;&nbsp;&nbsp;&nbsp;"));
+            LinkButton btnFrist = new LinkButton();
+            LinkButton btnPrev = new LinkButton();
+            LinkButton btnNext = new LinkButton();
+            LinkButton btnLast = new LinkButton();
+            if (!String.IsNullOrEmpty(PagerSettings.FirstPageImageUrl))
+            {
+                btnFrist.Text = "<img src='" + ResolveUrl(PagerSettings.FirstPageImageUrl) + "' border='0'/>";
+            }
+            else
+            {
+                btnFrist.Text = PagerSettings.FirstPageText;
+            }
+            btnFrist.Click += btnFrist_Click;
+            btnFrist.Font.Underline = false;
+            if (!String.IsNullOrEmpty(PagerSettings.PreviousPageImageUrl))
+            {
+                btnPrev.Text = "<img src='" + ResolveUrl(PagerSettings.PreviousPageImageUrl) + "' border='0'/>";
+            }
+            else
+            {
+                btnPrev.Text = PagerSettings.PreviousPageText;
+            }
+            btnPrev.Click += btnPrev_Click;
+            btnPrev.Font.Underline = false;
+            if (!String.IsNullOrEmpty(PagerSettings.NextPageImageUrl))
+            {
+                btnNext.Text = "<img src='" + ResolveUrl(PagerSettings.NextPageImageUrl) + "' border='0'/>";
+            }
+            else
+            {
+                btnNext.Text = PagerSettings.NextPageText;
+            }
+            btnNext.CommandName = "asd";
+            btnNext.Click += btnNext_Click;
+            btnNext.Font.Underline = false;
+            if (!String.IsNullOrEmpty(PagerSettings.LastPageImageUrl))
+            {
+                btnLast.Text = "<img src='" + ResolveUrl(PagerSettings.LastPageImageUrl) + "' border='0'/>";
+            }
+            else
+            {
+                btnLast.Text = PagerSettings.LastPageText;
+            }
+            btnLast.Click += btnLast_Click;
+            btnLast.Font.Underline = false;
+            if (PageIndex <= 0)
+            {
+                btnFrist.Enabled = btnPrev.Enabled = false;
+                btnFrist.ForeColor = System.Drawing.Color.Gray;
+                btnPrev.ForeColor = System.Drawing.Color.Gray;
+            }
+            else
+            {
+                btnFrist.Enabled = btnPrev.Enabled = true;
+            }
+            tableCell.Controls.Add(btnFrist);
+            tableCell.Controls.Add(new LiteralControl("&nbsp;&nbsp;"));
+            tableCell.Controls.Add(btnPrev);
+            tableCell.Controls.Add(new LiteralControl("&nbsp;&nbsp;"));
+            if (generateNumber)
+            {
+                int rightCount = (int)(PagerSettings.PageButtonCount / 2);
+                int leftCount = PagerSettings.PageButtonCount % 2 == 0 ? rightCount - 1 : rightCount;
+                for (int i = 0; i < PageCount; i++)
                 {
-                    _gridPagerRow.Visible = true;
+                    if (PageCount > PagerSettings.PageButtonCount)
+                    {
+                        if (i < PageIndex - leftCount && PageCount - 1 - i > PagerSettings.PageButtonCount - 1)
+                        {
+                            continue;
+                        }
+                        else if (i > PageIndex + rightCount && i > PagerSettings.PageButtonCount - 1)
+                        {
+                            continue;
+                        }
+                    }
+                    if (i == PageIndex)
+                    {
+                        tableCell.Controls.Add(new LiteralControl("<span style='color:red;font-weight:bold'>" + (i + 1).ToString() + "</span>"));
+                    }
+                    else
+                    {
+                        LinkButton lb = new LinkButton();
+                        lb.Text = (i + 1).ToString();
+                        lb.Click += lb_Click;
+                        tableCell.Controls.Add(lb);
+                    }
+                    tableCell.Controls.Add(new LiteralControl("&nbsp;&nbsp;"));
                 }
             }
+            if (PageIndex >= PageCount - 1)
+            {
+                btnNext.Enabled = btnLast.Enabled = false;
+                btnNext.ForeColor = System.Drawing.Color.Gray;
+                btnLast.ForeColor = System.Drawing.Color.Gray;
+            }
+            else
+            {
+                btnNext.Enabled = btnLast.Enabled = true;
+            }
+            tableCell.Controls.Add(btnNext);
+            tableCell.Controls.Add(new LiteralControl("&nbsp;&nbsp;"));
+            tableCell.Controls.Add(btnLast);
+            tableCell.Controls.Add(new LiteralControl("&nbsp;&nbsp;"));
+            txtbox.Width = 40;
+            tableCell.Controls.Add(txtbox);
+            tableCell.Controls.Add(new LiteralControl("&nbsp;&nbsp;"));
+            LinkButton go = new LinkButton();
+            go.Text = "转到";
+
+            go.Click += go_Click;
+            tableCell.Controls.Add(go);
+            return tableCell;
         }
-        #endregion
+
+        void go_Click(object sender, EventArgs e)
+        {
+            int currentPage;
+            if (int.TryParse(txtbox.Text, out currentPage))
+            {
+                if (currentPage > PageCount)
+                    currentPage = PageCount;
+                if (currentPage < 0)
+                    currentPage = 1;
+                GridViewPageEventArgs eventArgs = new GridViewPageEventArgs(currentPage);
+                PageIndexChang(this, eventArgs);
+            }
+
+        }
+
+        void lb_Click(object sender, EventArgs e)
+        {
+            LinkButton lb = sender as LinkButton;
+            int index = int.Parse(lb.Text);
+            GridViewPageEventArgs eventArgs = new GridViewPageEventArgs(index);
+            PageIndexChang(this, eventArgs);
+        }
+
+        void btnLast_Click(object sender, EventArgs e)
+        {
+            GridViewPageEventArgs eventArgs = new GridViewPageEventArgs(PageCount-1);
+            PageIndexChang(this, eventArgs);
+        }
+
+        void btnNext_Click(object sender, EventArgs e)
+        {
+            GridViewPageEventArgs eventArgs = new GridViewPageEventArgs(PageIndex+1);
+            PageIndexChang(this, eventArgs);
+        }
+
+        void btnPrev_Click(object sender, EventArgs e)
+        {
+            GridViewPageEventArgs eventArgs = new GridViewPageEventArgs(PageIndex-1);
+            PageIndexChang(this, eventArgs);
+        }
+
+        void btnFrist_Click(object sender, EventArgs e)
+        {
+           GridViewPageEventArgs eventArgs=new GridViewPageEventArgs(0);
+           PageIndexChang(this, eventArgs);
+        }
 
         #region Help Methods
         /// <summary>
@@ -512,69 +573,54 @@ namespace WebUserControl.UI
 
         private void DisplayPageSizeSelector(GridViewRow dgItem)
         {
-            TableCell pagerCell;
-            TableRow pagerRow;
+            //TableCell pagerCell;
+            //TableRow pagerRow;
 
-            int j = 0;
-            System.Web.UI.WebControls.DropDownList cboPageSize = new DropDownList();
-            cboPageSize.AutoPostBack = true;
-            cboPageSize.Width = new Unit(40, UnitType.Pixel);
-            ((DropDownList)(cboPageSize)).SelectedIndexChanged += new EventHandler(this.cboPageSize_SelectedIndexChanged);
+            //int j = 0;
+            //System.Web.UI.WebControls.DropDownList cboPageSize = new DropDownList();
+            //cboPageSize.AutoPostBack = true;
+            //cboPageSize.Width = new Unit(40, UnitType.Pixel);
+            //((DropDownList)(cboPageSize)).SelectedIndexChanged += new EventHandler(this.cboPageSize_SelectedIndexChanged);
 
-            // -- limit the max page size to a 250 records
-            j = this.RecordsCount + _pageSelectorPageSizeInterval;
-            for (int i = _pageSelectorPageSizeInterval; i <= ((j > 250) ? 250 : j); )
-            {
-                cboPageSize.Items.Add(i.ToString());
-                i += _pageSelectorPageSizeInterval;
-            }
+            //// -- limit the max page size to a 250 records
+            //j = this.RecordsCount + _pageSelectorPageSizeInterval;
+            //for (int i = _pageSelectorPageSizeInterval; i <= ((j > 250) ? 250 : j); )
+            //{
+            //    cboPageSize.Items.Add(i.ToString());
+            //    i += _pageSelectorPageSizeInterval;
+            //}
 
-            if (cboPageSize.Items.FindByText(this.PageSize.ToString()) != null)
-            {
-                cboPageSize.Items.FindByText(this.PageSize.ToString()).Selected = true;
-            }
+            //if (cboPageSize.Items.FindByText(this.PageSize.ToString()) != null)
+            //{
+            //    cboPageSize.Items.FindByText(this.PageSize.ToString()).Selected = true;
+            //}
 
-            pagerRow = dgItem;
-            pagerCell = ((TableCell)(pagerRow.Controls[0]));
-            TableRow pagerTableRow = ((Table)pagerCell.Controls[0]).Rows[0];
-            TableCell cell = new TableCell();
-            cell.Text = string.Format("{0}: ", ShowPageText);
-            cell.Wrap = false;
-            cell.ApplyStyle(this.PagerStyle);
-            pagerTableRow.Cells.AddAt(0, cell);
+            //pagerRow = dgItem;
+            //pagerCell = ((TableCell)(pagerRow.Controls[0]));
+            //TableRow pagerTableRow = ((Table)pagerCell.Controls[0]).Rows[0];
+            //TableCell cell = new TableCell();
+            //cell.Text = string.Format("{0}: ", ShowPageText);
+            //cell.Wrap = false;
+            //cell.ApplyStyle(this.PagerStyle);
+            //pagerTableRow.Cells.AddAt(0, cell);
 
-            cell = new TableCell();
-            if (StatisticsText == "")
-            {
-                cell.Text = string.Format("&nbsp; ({1}: {0})", RecordsCount, TotalRecordsText);
-            }
-            else
-            {
-                cell.Text = string.Format("&nbsp; ({1}: {0},{2})", RecordsCount, TotalRecordsText, StatisticsText);
-            }
-            cell.Wrap = false;
-            cell.ApplyStyle(this.PagerStyle);
-            pagerTableRow.Cells.Add(cell);
+            //cell = new TableCell();
+            //if (StatisticsText == "")
+            //{
+            //    cell.Text = string.Format("&nbsp; ({1}: {0})", RecordsCount, TotalRecordsText);
+            //}
+            //else
+            //{
+            //    cell.Text = string.Format("&nbsp; ({1}: {0},{2})", RecordsCount, TotalRecordsText, StatisticsText);
+            //}
+            //cell.Wrap = false;
+            //cell.ApplyStyle(this.PagerStyle);
+            //pagerTableRow.Cells.Add(cell);
 
-            cell = new TableCell();
-            cell.Width = Unit.Percentage(100);
-            cell.ApplyStyle(this.PagerStyle);
-            pagerTableRow.Cells.Add(cell);
-
-            if (_allowChangePageSize)
-            {
-                cell = new TableCell();
-                cell.Text = string.Format("{0}: ", RecordsPerPageText);
-                cell.Wrap = false;
-                cell.ApplyStyle(this.PagerStyle);
-                cell.HorizontalAlign = HorizontalAlign.Right;
-                pagerTableRow.Cells.Add(cell);
-                cell = new TableCell();
-                cell.Controls.Add(cboPageSize);
-                cell.HorizontalAlign = HorizontalAlign.Right;
-                cell.ApplyStyle(this.PagerStyle);
-                pagerTableRow.Cells.Add(cell);
-            }
+            //cell = new TableCell();
+            //cell.Width = Unit.Percentage(100);
+            //cell.ApplyStyle(this.PagerStyle);
+            //pagerTableRow.Cells.Add(cell);
         }
         #endregion
 

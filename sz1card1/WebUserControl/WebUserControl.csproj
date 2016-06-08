@@ -86,7 +86,6 @@
     <Compile Include="UI\ToolbarLink.cs" />
     <Compile Include="UI\ToolbarSeparator.cs" />
     <Compile Include="UI\ToolbarTextBox.cs" />
-    <Compile Include="UI\WapDataPager.cs" />
     <Compile Include="UI\XmlDropDownList.cs" />
   </ItemGroup>
   <ItemGroup>
