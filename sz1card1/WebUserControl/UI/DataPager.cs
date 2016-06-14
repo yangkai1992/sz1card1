@@ -9,11 +9,11 @@ namespace WebUserControl.UI
 {
     public class DataPager : TableCell
     {
-        public const string FIRST_PAGE = "First1";
-        public const string PREV_PAGE = "Prev1";
-        public const string NEXT_PAGE = "Next1";
-        public const string LAST_PAGE = "Last1";
-        public const string PAGE_ARGUMENT = "Page1";
+        public const string FIRST_PAGE = "First";
+        public const string PREV_PAGE = "Prev";
+        public const string NEXT_PAGE = "Next";
+        public const string LAST_PAGE = "Last";
+        public const string PAGE_ARGUMENT = "Page";
         public const char ARGUMENT_SPLITTER = '$';
         private int _pageIndex;
         private int _recordCount;
@@ -198,9 +198,7 @@ namespace WebUserControl.UI
                     currentPage = 1;
                 link.CommandName = PAGE_ARGUMENT;
                 link.CommandArgument = currentPage.ToString();
-            }
-
-            
+            }            
         }
     }
 }

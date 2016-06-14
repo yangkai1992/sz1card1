@@ -1,11 +1,7 @@
 ﻿using ManagementBLL.User;
-using ManagementDAL.DAL.NHibernate;
-using ManagementDataModel.Models;
+using ManagementDataModel.Models.User;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data;
 
 namespace UnitTest
 {
@@ -15,8 +11,11 @@ namespace UnitTest
         {
             //UserDao userDao = new UserDao();
             //User user = userDao.Get("yangkai");
-            UserBLL.GetUser("yk");
+            User user = UserBLL.GetUser("admin");
 
+           // DataSet dataset = UserBLL.GetUserList(1, 2, "sd");
+
+            string s = "sdf";
             Console.ReadKey();
         }
     }

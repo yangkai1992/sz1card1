@@ -61,14 +61,15 @@
       <Project>{bd275eac-70e0-409d-a778-d438cca93864}</Project>
       <Name>ManagementBLL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ManagementDAL\ManagementDAL.csproj">
-      <Project>{c507b2c1-efc3-4f48-99fb-e90f3972572a}</Project>
-      <Name>ManagementDAL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ManagementDataModel\ManagementDataModel.csproj">
       <Project>{7a8b38fb-59a2-4362-bc2d-d872dac65da9}</Project>
       <Name>ManagementDataModel</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Config\MSSQL.cfg.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

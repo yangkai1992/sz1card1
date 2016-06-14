@@ -59,6 +59,9 @@
   <ItemGroup>
     <Content Include="App_Themes\Default\Default.css" />
     <Content Include="App_Themes\Default\images\header_bg.gif" />
+    <Content Include="Config\MSSQL.cfg.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="CSS\AlipayCommon.css" />
     <Content Include="CSS\AlipayStyle.css" />
     <Content Include="CSS\autoPlay.css" />

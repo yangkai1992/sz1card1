@@ -1,11 +1,8 @@
-﻿using ManagementDAL.DAL.EF.User;
-using ManagementDAL.IDAL;
-using System;
+﻿using ManagementDAL.IDAL;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ManagementDataModel.Models;
+using ManagementDAL.DAL.NHibernate;
+using System;
+using System.Data;
 
 namespace ManagementBLL.User
 {
@@ -18,20 +15,26 @@ namespace ManagementBLL.User
             {
                 if (iuser == null)
                 {
-                    iuser = new UserDAL();
+                    iuser = new UserDao();
                 }
                 return iuser;
             }
         }
 
-        public static ManagementDataModel.Models.User GetUser(string account)
+        public static ManagementDataModel.Models.User.User GetUser(string account)
         {
             return IUser.GetUser(account);
         }
 
-        public static List<ManagementDataModel.Models.User> GetUserList(int pageIndex, int pageSize, string orderBy)
+        public static ManagementDataModel.Models.User.User GetUser(Guid guid)
         {
-            return IUser.GetUserList(pageIndex, pageSize, orderBy);
+            return IUser.GetUser(guid);
+        }
+
+
+        public static DataSet GetUserList(int pageIndex, int pageSize, string orderBy, Dictionary<string, object> parameters, out int total)
+        {
+            return IUser.GetUserList(pageIndex, pageSize, orderBy, parameters, out total);
         }
     }
 }

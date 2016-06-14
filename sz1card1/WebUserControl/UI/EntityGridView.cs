@@ -33,8 +33,6 @@ namespace WebUserControl.UI
         /// </summary>
         public event EventHandler PageSizeChanged;
 
-        public event GridViewPageEventHandler PageIndexChang; 
-
         #region Properties
 
         /// <summary>
@@ -359,196 +357,13 @@ namespace WebUserControl.UI
                 PagerSettings.NextPageText = "下一页";
                 PagerSettings.LastPageText = "尾页";
                 PagerSettings.Mode = PagerButtons;
-                TableCell tc = GeneratePage();
+                TableCell tc = new DataPager(PagerSettings, PageIndex, RecordCount, PageSize);
                 tc.ColumnSpan = this.Columns.Count;
                 e.Row.Controls.Add(tc);
             }
         }
 
-        #endregion
-
-        private TableCell GeneratePage()
-        {
-            bool generateNumber = false;
-            if (PagerSettings.Mode == PagerButtons.Numeric || PagerSettings.Mode == PagerButtons.NumericFirstLast)
-            {
-                generateNumber = true;
-            }
-            TableCell tableCell = new TableCell();
-            tableCell.Controls.Add(new LiteralControl("&nbsp;&nbsp;"));
-            if (RecordCount > 0)
-            {
-                tableCell.Controls.Add(new LiteralControl("总条数：&nbsp;"));
-                tableCell.Controls.Add(new LiteralControl(RecordCount.ToString()));
-                tableCell.Controls.Add(new LiteralControl("&nbsp;&nbsp;每页条数：&nbsp;&nbsp;"));
-                tableCell.Controls.Add(new LiteralControl(PageSize.ToString()));
-                tableCell.Controls.Add(new LiteralControl("&nbsp;当前页：&nbsp;&nbsp;"));
-            }
-            tableCell.Controls.Add(new LiteralControl((PageIndex + 1).ToString()));
-            tableCell.Controls.Add(new LiteralControl("/"));
-            tableCell.Controls.Add(new LiteralControl(PageCount.ToString()));
-            tableCell.Controls.Add(new LiteralControl("&nbsp;&nbsp;&nbsp;&nbsp;"));
-            LinkButton btnFrist = new LinkButton();
-            LinkButton btnPrev = new LinkButton();
-            LinkButton btnNext = new LinkButton();
-            LinkButton btnLast = new LinkButton();
-            if (!String.IsNullOrEmpty(PagerSettings.FirstPageImageUrl))
-            {
-                btnFrist.Text = "<img src='" + ResolveUrl(PagerSettings.FirstPageImageUrl) + "' border='0'/>";
-            }
-            else
-            {
-                btnFrist.Text = PagerSettings.FirstPageText;
-            }
-            btnFrist.Click += btnFrist_Click;
-            btnFrist.Font.Underline = false;
-            if (!String.IsNullOrEmpty(PagerSettings.PreviousPageImageUrl))
-            {
-                btnPrev.Text = "<img src='" + ResolveUrl(PagerSettings.PreviousPageImageUrl) + "' border='0'/>";
-            }
-            else
-            {
-                btnPrev.Text = PagerSettings.PreviousPageText;
-            }
-            btnPrev.Click += btnPrev_Click;
-            btnPrev.Font.Underline = false;
-            if (!String.IsNullOrEmpty(PagerSettings.NextPageImageUrl))
-            {
-                btnNext.Text = "<img src='" + ResolveUrl(PagerSettings.NextPageImageUrl) + "' border='0'/>";
-            }
-            else
-            {
-                btnNext.Text = PagerSettings.NextPageText;
-            }
-            btnNext.CommandName = "asd";
-            btnNext.Click += btnNext_Click;
-            btnNext.Font.Underline = false;
-            if (!String.IsNullOrEmpty(PagerSettings.LastPageImageUrl))
-            {
-                btnLast.Text = "<img src='" + ResolveUrl(PagerSettings.LastPageImageUrl) + "' border='0'/>";
-            }
-            else
-            {
-                btnLast.Text = PagerSettings.LastPageText;
-            }
-            btnLast.Click += btnLast_Click;
-            btnLast.Font.Underline = false;
-            if (PageIndex <= 0)
-            {
-                btnFrist.Enabled = btnPrev.Enabled = false;
-                btnFrist.ForeColor = System.Drawing.Color.Gray;
-                btnPrev.ForeColor = System.Drawing.Color.Gray;
-            }
-            else
-            {
-                btnFrist.Enabled = btnPrev.Enabled = true;
-            }
-            tableCell.Controls.Add(btnFrist);
-            tableCell.Controls.Add(new LiteralControl("&nbsp;&nbsp;"));
-            tableCell.Controls.Add(btnPrev);
-            tableCell.Controls.Add(new LiteralControl("&nbsp;&nbsp;"));
-            if (generateNumber)
-            {
-                int rightCount = (int)(PagerSettings.PageButtonCount / 2);
-                int leftCount = PagerSettings.PageButtonCount % 2 == 0 ? rightCount - 1 : rightCount;
-                for (int i = 0; i < PageCount; i++)
-                {
-                    if (PageCount > PagerSettings.PageButtonCount)
-                    {
-                        if (i < PageIndex - leftCount && PageCount - 1 - i > PagerSettings.PageButtonCount - 1)
-                        {
-                            continue;
-                        }
-                        else if (i > PageIndex + rightCount && i > PagerSettings.PageButtonCount - 1)
-                        {
-                            continue;
-                        }
-                    }
-                    if (i == PageIndex)
-                    {
-                        tableCell.Controls.Add(new LiteralControl("<span style='color:red;font-weight:bold'>" + (i + 1).ToString() + "</span>"));
-                    }
-                    else
-                    {
-                        LinkButton lb = new LinkButton();
-                        lb.Text = (i + 1).ToString();
-                        lb.Click += lb_Click;
-                        tableCell.Controls.Add(lb);
-                    }
-                    tableCell.Controls.Add(new LiteralControl("&nbsp;&nbsp;"));
-                }
-            }
-            if (PageIndex >= PageCount - 1)
-            {
-                btnNext.Enabled = btnLast.Enabled = false;
-                btnNext.ForeColor = System.Drawing.Color.Gray;
-                btnLast.ForeColor = System.Drawing.Color.Gray;
-            }
-            else
-            {
-                btnNext.Enabled = btnLast.Enabled = true;
-            }
-            tableCell.Controls.Add(btnNext);
-            tableCell.Controls.Add(new LiteralControl("&nbsp;&nbsp;"));
-            tableCell.Controls.Add(btnLast);
-            tableCell.Controls.Add(new LiteralControl("&nbsp;&nbsp;"));
-            txtbox.Width = 40;
-            tableCell.Controls.Add(txtbox);
-            tableCell.Controls.Add(new LiteralControl("&nbsp;&nbsp;"));
-            LinkButton go = new LinkButton();
-            go.Text = "转到";
-
-            go.Click += go_Click;
-            tableCell.Controls.Add(go);
-            return tableCell;
-        }
-
-        void go_Click(object sender, EventArgs e)
-        {
-            int currentPage;
-            if (int.TryParse(txtbox.Text, out currentPage))
-            {
-                if (currentPage > PageCount)
-                    currentPage = PageCount;
-                if (currentPage < 0)
-                    currentPage = 1;
-                GridViewPageEventArgs eventArgs = new GridViewPageEventArgs(currentPage);
-                PageIndexChang(this, eventArgs);
-            }
-
-        }
-
-        void lb_Click(object sender, EventArgs e)
-        {
-            LinkButton lb = sender as LinkButton;
-            int index = int.Parse(lb.Text);
-            GridViewPageEventArgs eventArgs = new GridViewPageEventArgs(index);
-            PageIndexChang(this, eventArgs);
-        }
-
-        void btnLast_Click(object sender, EventArgs e)
-        {
-            GridViewPageEventArgs eventArgs = new GridViewPageEventArgs(PageCount-1);
-            PageIndexChang(this, eventArgs);
-        }
-
-        void btnNext_Click(object sender, EventArgs e)
-        {
-            GridViewPageEventArgs eventArgs = new GridViewPageEventArgs(PageIndex+1);
-            PageIndexChang(this, eventArgs);
-        }
-
-        void btnPrev_Click(object sender, EventArgs e)
-        {
-            GridViewPageEventArgs eventArgs = new GridViewPageEventArgs(PageIndex-1);
-            PageIndexChang(this, eventArgs);
-        }
-
-        void btnFrist_Click(object sender, EventArgs e)
-        {
-           GridViewPageEventArgs eventArgs=new GridViewPageEventArgs(0);
-           PageIndexChang(this, eventArgs);
-        }
+        #endregion   
 
         #region Help Methods
         /// <summary>

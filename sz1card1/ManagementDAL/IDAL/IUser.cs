@@ -1,9 +1,7 @@
-﻿using ManagementDataModel.Models;
+﻿using ManagementDataModel.Models.User;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Data;
 
 namespace ManagementDAL.IDAL
 {
@@ -11,6 +9,6 @@ namespace ManagementDAL.IDAL
     {
         User GetUser(Guid guid);
         User GetUser(string account);
-        List<ManagementDataModel.Models.User> GetUserList(int pageIndex, int pageSize, string orderBy);
+        DataSet GetUserList(int pageIndex, int pageSize, string orderBy, Dictionary<string, object> parameters, out int total);
     }
 }

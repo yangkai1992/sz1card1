@@ -50,8 +50,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAL\EF\ManagementContext.cs" />
-    <Compile Include="DAL\EF\User\UserDAL.cs" />
     <Compile Include="DAL\NHibernate\UserDao.cs" />
     <Compile Include="IDAL\IUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -65,13 +63,14 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{63532ba0-2e6a-4d2c-9fe1-e3ffe7a8868a}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ManagementDataModel\ManagementDataModel.csproj">
       <Project>{7a8b38fb-59a2-4362-bc2d-d872dac65da9}</Project>
       <Name>ManagementDataModel</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Config\App.Config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

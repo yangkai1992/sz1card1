@@ -6,7 +6,6 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using WebUserControl.UI;
-
 namespace ManagementWebsite.Management.User
 {
     public partial class UserList : System.Web.UI.Page
@@ -15,8 +14,6 @@ namespace ManagementWebsite.Management.User
         {
             if (!IsPostBack)
             {
-                gvUserList.PageIndex = 0;
-                gvUserList.RecordCount = 1000;
                 BindData();
             }
 
@@ -42,23 +39,10 @@ namespace ManagementWebsite.Management.User
 
         private void BindData()
         {
-            List<ManagementDataModel.Models.User> list = new List<ManagementDataModel.Models.User>();
-            ManagementDataModel.Models.User user = null;
-            for (int i = 0; i < 1000; i++)
-            {
-                user = new ManagementDataModel.Models.User()
-                {
-                    Guid = Guid.NewGuid(),
-                    Account = i.ToString(),
-                    TrueName = i.ToString() + i.ToString(),
-                };
-                list.Add(user);
-            }
-            list = list.OrderByDescending<ManagementDataModel.Models.User, string>(x => x.Account).Skip(gvUserList.PageIndex * gvUserList.PageSize).Take<ManagementDataModel.Models.User>(gvUserList.PageSize).ToList();
-
-            gvUserList.DataSource = list;
-            gvUserList.VirtualItemCount = 1000;
-          
+            int total;
+            gvUserList.DataSource = UserBLL.GetUserList(gvUserList.PageIndex,gvUserList.PageSize,"",null,out total);
+            gvUserList.VirtualItemCount = total;
+            gvUserList.RecordCount = total;
             gvUserList.DataBind();
         }
 
