@@ -72,25 +72,15 @@ namespace WebUserControl.UI
             LinkButton btnPrev = new LinkButton();
             LinkButton btnNext = new LinkButton();
             LinkButton btnLast = new LinkButton();
-            if (!String.IsNullOrEmpty(_settings.FirstPageImageUrl))
-            {
-                btnFrist.Text = "<img src='" + ResolveUrl(_settings.FirstPageImageUrl) + "' border='0'/>";
-            }
-            else
-            {
-                btnFrist.Text = _settings.FirstPageText;
-            }
+
+            btnFrist.Text = "首页";
+            
             btnFrist.CommandName = PAGE_ARGUMENT;
             btnFrist.CommandArgument = FIRST_PAGE;
             btnFrist.Font.Underline = false;
-            if (!String.IsNullOrEmpty(_settings.PreviousPageImageUrl))
-            {
-                btnPrev.Text = "<img src='" + ResolveUrl(_settings.PreviousPageImageUrl) + "' border='0'/>";
-            }
-            else
-            {
-                btnPrev.Text = _settings.PreviousPageText;
-            }
+
+            btnPrev.Text = "前一页";
+            
             btnPrev.CommandName = PAGE_ARGUMENT;
             btnPrev.CommandArgument = PREV_PAGE;
             btnPrev.Font.Underline = false;

@@ -42,7 +42,6 @@ namespace ManagementWebsite.Management.User
             int total;
             gvUserList.DataSource = UserBLL.GetUserList(gvUserList.PageIndex,gvUserList.PageSize,"",null,out total);
             gvUserList.VirtualItemCount = total;
-            gvUserList.RecordCount = total;
             gvUserList.DataBind();
         }
 

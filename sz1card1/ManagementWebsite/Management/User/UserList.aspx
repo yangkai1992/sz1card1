@@ -102,11 +102,9 @@
                 ItemId="tbselect" LabelText="查询" OnClientClick="PopupDiv.show('popSearchUser');document.getElementById('tbuserAcount').focus();return false;">
             </webUserControl:ToolbarButton>
         </webUserControl:Toolbar>
-        <webUserControl:EntityGridView ID="gvUserList" runat="server" AllowChangePagesize="True"
-             AllowMultiColumnSorting="False" DefaultSortDirection="Ascending" AllowCustomPaging="true"
-            PageSelectorPageSizeInterval="10" PageSize="5" PagerButtons="NumericFirstLast"
-            AllowSorting="True" AutoGenerateColumns="False" OnPageIndexChanging ="gvUserList_PageIndexChanging"
-            OnRowDataBound="gvUserList_RowDataBound">
+        <webUserControl:EntityGridView ID="gvUserList" runat="server" AllowCustomPaging="true"
+             PageSize="10" PagerButtons="NextPreviousFirstLast" OnPageIndexChanging ="gvUserList_PageIndexChanging"
+            OnRowDataBound="gvUserList_RowDataBound" AutoGenerateColumns="false" >
             <Columns>
                 <asp:TemplateField>
                     <HeaderTemplate>
